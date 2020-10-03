@@ -26,9 +26,9 @@ const OnboardingScreen = () => {
     >
       <Image
         source={trueStayLogo}
-        style={{ width: 207.5, height: 202 }}
+        style={{ width: "60%", height: "32%" }}
       ></Image>
-      <View
+      <TouchableOpacity
         style={{
           marginTop: 50,
           //   paddingTop: 50,
@@ -39,19 +39,18 @@ const OnboardingScreen = () => {
           backgroundColor: themeColorBase,
         }}
       >
-        <TouchableOpacity>
-          <Text
-            style={{
-              color: "white",
-              fontSize: 20,
-              fontFamily: "Montserrat",
-            }}
-          >
-            Tenant
-          </Text>
-        </TouchableOpacity>
-      </View>
-      <View
+        <Text
+          style={{
+            color: "white",
+            fontSize: 20,
+            fontFamily: "Montserrat",
+          }}
+        >
+          Tenant
+        </Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
         style={{
           height: 50,
           marginTop: 20,
@@ -62,18 +61,16 @@ const OnboardingScreen = () => {
           alignItems: "center",
         }}
       >
-        <TouchableOpacity>
-          <Text
-            style={{
-              color: themeColorBase,
-              fontSize: 20,
-              fontFamily: "Montserrat",
-            }}
-          >
-            Landlord
-          </Text>
-        </TouchableOpacity>
-      </View>
+        <Text
+          style={{
+            color: themeColorBase,
+            fontSize: 20,
+            fontFamily: "Montserrat",
+          }}
+        >
+          Landlord
+        </Text>
+      </TouchableOpacity>
     </View>
   );
 };
