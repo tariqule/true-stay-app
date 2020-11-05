@@ -3,7 +3,7 @@ import { SignUpScreen } from "./src/pages/Signup/SignUpScreen";
 import Navigator from "./src/routes";
 
 function App() {
-  return <SignUpScreen />;
+  return <Navigator />;
 }
 
 export default App;
