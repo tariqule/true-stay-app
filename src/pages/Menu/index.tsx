@@ -4,40 +4,40 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
 import LoginScreen from '../Login';
 
-export const MenuScreen = ({ navigation }) => {
+export const MenuScreen = (props: any) => {
     return (
     //user info goes here?
       <View style={{ flex: 1}}>
         <Button
-          onPress={() => navigation.navigate('Feed')}
+          onPress={() => props.navigation.navigate('Feed')}
           title="FEED"
         />
         <Button
-          onPress={() => navigation.navigate('Explore')}
+          onPress={() => props.navigation.navigate('Explore')}
           title="EXPLORE"
         />
         <Button
-          onPress={() => navigation.navigate('Messages')}
+          onPress={() => props.navigation.navigate('Messages')}
           title="MESSAGES"
         />
         <Button
-          onPress={() => navigation.navigate('Notifications')}
+          onPress={() => props.navigation.navigate('Notifications')}
           title="NOTIFICATIONS"
         />
         <Button
-          onPress={() => navigation.navigate('Photos')}
+          onPress={() => props.navigation.navigate('Photos')}
           title="PHOTOS"
         />
         <Button
-          onPress={() => navigation.navigate('Videos')}
+          onPress={() => props.navigation.navigate('Videos')}
           title="VIDEOS"
         />
         <Button
-          onPress={() => navigation.navigate('Places')}
+          onPress={() => props.navigation.navigate('Places')}
           title="PLACES"
         />
         <Button
-          onPress={() => navigation.navigate('Settings')}
+          onPress={() => props.navigation.navigate('Settings')}
           title="SETTINGS"
         />
         <Button
