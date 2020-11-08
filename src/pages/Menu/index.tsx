@@ -4,11 +4,10 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
 import LoginScreen from '../Login';
 
-function MenuScreen({ navigation }) {
+export const MenuScreen = ({ navigation }) => {
     return (
     //user info goes here?
-
-      <View style={{ flex: 1, alignItems: 'left', justifyContent: 'left' }}>
+      <View style={{ flex: 1}}>
         <Button
           onPress={() => navigation.navigate('Feed')}
           title="FEED"
@@ -50,19 +49,19 @@ function MenuScreen({ navigation }) {
   }
 
  //code sample for going back -> should be with each option or should be 1 for all like return back home?
- function GoBackScreen({ navigation }) {
+ /*function GoBackScreen({ navigation }) {
   return (
     <View style={{ flex: 1, alignItems: 'left', justifyContent: 'left' }}>
       <Button onPress={() => navigation.goBack()} title="Home" />
     </View>
   );
-}
+}*/
 
 //follow icons btn should be coded -> fb, instagram, twitter
 
-  const Drawer = createDrawerNavigator();
+  /*const Drawer = createDrawerNavigator();*/
 
-export default function App() {
+/*export default function App() {
   return (
     <NavigationContainer>
       <Drawer.Navigator initialRouteName="Home">
@@ -80,4 +79,4 @@ export default function App() {
       </Drawer.Navigator>
     </NavigationContainer>
   );
-}
+}*/
