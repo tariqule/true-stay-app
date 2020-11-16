@@ -1,140 +1,120 @@
-import React from 'react';
-import {View, StyleSheet, Text, Dimensions, TextInput, Button, TouchableOpacity} from 'react-native';
-import { color } from 'react-native-reanimated';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import React from "react";
+import {
+  View,
+  StyleSheet,
+  Text,
+  Dimensions,
+  TextInput,
+  Button,
+  TouchableOpacity,
+} from "react-native";
+import { color } from "react-native-reanimated";
+import { SafeAreaView } from "react-native-safe-area-context";
 
-const screenWidth = Dimensions.get('screen').width
+const screenWidth = Dimensions.get("screen").width;
 
-export const PostListingScreen = () =>{
-    return(
-        <View style={styles.container}>
-            <SafeAreaView style={styles.header}>
-                <Text style={styles.heading}>My Property</Text>
-            </SafeAreaView>
-            <View style={styles.userDetails}>
-                <TextInput 
-                style={styles.input} 
-                placeholder='Agent Name'
-                />
-                <TextInput 
-                style={styles.input} 
-                placeholder='Agent Number'
-                />
-                <Text style={{color: 'rgb(175, 174, 174)'}}>-OR-</Text>
-                <TouchableOpacity style={styles.Button} onPress={()=> console.log("using profile")}>
-                <Text style={styles.ButtonText}>Use Profile</Text>
-                </TouchableOpacity>
-            </View>
-            <View style={styles.AddressInfo}>
-            <TextInput 
-                style={styles.input} 
-                placeholder='Street Address'
-                />
-                <TextInput 
-                style={styles.input} 
-                placeholder='Apartment, Suite, Unit'
-                />
-                <TextInput 
-                style={styles.input} 
-                placeholder='City'
-                />
-                <TextInput 
-                style={styles.input} 
-                placeholder='Postal Code'
-                />
-                <TouchableOpacity style={styles.navButton} onPress={()=> console.log("Next page")}>
-                <Text style={styles.ButtonText}>&gt;</Text>
-                </TouchableOpacity>
-            </View>
+export const PostListingScreen = () => {
+  return (
+    <View style={styles.container}>
+      <SafeAreaView style={styles.header}>
+        <Text style={styles.heading}>Post Listing</Text>
+      </SafeAreaView>
+      <View style={styles.body}>
+        <View style={styles.main}>
+          <TextInput style={styles.input} placeholder="Title" />
+          <TextInput style={styles.input} placeholder="Description" />
+          <TextInput style={styles.input} placeholder="Address" />
+          <View style={styles.photoView}>
+            <Text style={styles.texts}>Photos</Text>
+            <TouchableOpacity
+              style={styles.PhotoButton}
+              onPress={() => console.log("upload")}
+            >
+              <Text style={styles.buttonText}>Choose</Text>
+            </TouchableOpacity>
+          </View>
         </View>
-    );
-}
+        <View style={styles.footer}>
+          <TouchableOpacity
+            style={styles.Button}
+            onPress={() => console.log("Signed Up")}
+          >
+            <Text style={styles.buttonText}>Submit</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: 'white',
-        alignItems: 'center',
-    },
-    header: {
-        flex: 0.05,
-        justifyContent: 'center',
-        textAlign: 'left',
-        padding: 20,
-        backgroundColor: 'rgb(187, 122, 68)',
-        width: screenWidth,
-        },
-    heading: {
-        fontWeight: "bold",
-        fontSize: 25,
-        fontFamily: 'Verdana',
-        color: 'white',
-    },
-    userDetails: {
-        flex: 0.35,
-        backgroundColor: 'rgb(248, 248, 248)',
-        borderRadius: 20,
-        width: screenWidth - 10,
-        shadowColor: "#000",
-        shadowOffset: {
-	        width: 1,
-	        height: 3,
-        },
-        shadowOpacity: 0.2,
-        shadowRadius: 5,
-        elevation: 5,
-        justifyContent: 'center',
-        alignItems: 'center',
-        margin: 10,
-    },
-    AddressInfo:{
-        flex: 0.55,
-        backgroundColor: 'rgb(248, 248, 248)',
-        borderRadius: 20,
-        width: screenWidth - 10,
-        shadowColor: "#000",
-        shadowOffset: {
-	        width: 1,
-	        height: 3,
-        },
-        shadowOpacity: 0.2,
-        shadowRadius: 5,
-        elevation: 5,
-        justifyContent: 'center',
-        alignItems: 'center',
-        margin: 20,
-    },
-    input: {
-        width: screenWidth - 30,
-        borderRadius: 30,
-        borderColor: 'rgb(187, 122, 68)',
-        borderWidth: 1.5,
-        padding: 15,
-        margin: 15,
-        fontSize: 15,
-    },
-    Button:{
-        backgroundColor: 'rgb(106, 127, 219)',
-        color: 'white',
-        width: 95,
-        borderRadius: 30,
-        fontSize: 16,
-        margin: 10,
-        padding: 8,
-        alignItems: 'center',
-    },
-    ButtonText: {
-        color: 'white',
-        fontSize: 15,
-    },
-    navButton: {
-        backgroundColor: 'rgb(106, 127, 219)',
-        color: 'white',
-        width: 35,
-        borderRadius: 30,
-        fontSize: 16,
-        margin: 10,
-        padding: 8,
-        alignItems: 'center',
-    }
-})
+  container: {
+    flex: 1,
+    backgroundColor: "white",
+  },
+  header: {
+    flex: 1,
+    backgroundColor: "rgb(187, 122, 68)",
+    justifyContent: "flex-end",
+    alignItems: "flex-start",
+    padding: 20,
+  },
+  heading: {
+    fontWeight: "bold",
+    fontSize: 30,
+    padding: 20,
+    color: "white",
+  },
+  body: {
+    flex: 5,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  main: {
+    flex: 2,
+    justifyContent: "center",
+    alignItems: "center",
+    width: screenWidth - 30,
+  },
+  buttonText: {
+    color: "white",
+    fontSize: 20,
+  },
+  texts: {
+    fontSize: 18,
+    marginBottom: 5,
+  },
+  input: {
+    width: screenWidth - 30,
+    borderRadius: 20,
+    borderColor: "rgb(187, 122, 68)",
+    borderWidth: 1.5,
+    padding: 15,
+    margin: 15,
+    fontSize: 15,
+  },
+  Button: {
+    backgroundColor: "rgb(187, 122, 68)",
+    width: screenWidth - 30,
+    borderRadius: 30,
+    alignItems: "center",
+    margin: 10,
+    padding: 12,
+  },
+  PhotoButton: {
+    backgroundColor: "rgb(187, 122, 68)",
+    width: 100,
+    borderRadius: 30,
+    alignItems: "center",
+    //padding: 5,
+  },
+  footer: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  photoView: {
+    fontSize: 20,
+    width: screenWidth - 30,
+  },
+});
