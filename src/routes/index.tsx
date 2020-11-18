@@ -2,7 +2,7 @@ import * as React from "react";
 import { View, Text, Button } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import LoginScreen from "../pages/Login";
+import LoginScreen from "../pages/LoginPage";
 import SignupScreen from "../pages/Signup";
 import OnboardingScreen from "../pages/Onboarding";
 import Search from "../pages/Search";
@@ -14,6 +14,7 @@ export const LOGIN_SCREEN = "LOGIN_SCREEN";
 export const SIGNUP_SCREEN = "SIGNUP_SCREEN";
 export const ONBOARDING_SCREEN = "ONBOARDING_SCREEN";
 export const SEARCH_SCREEN = "SEARCH_SCREEN";
+export const LOGINPAGE_SCREEN = "LOGINPAGE_SCREEN";
 
 function Navigator() {
   return (
@@ -29,6 +30,7 @@ function Navigator() {
         <Stack.Screen name={LOGIN_SCREEN} component={LoginScreen} />
         <Stack.Screen name={SIGNUP_SCREEN} component={SignupScreen} />
         <Stack.Screen name={SEARCH_SCREEN} component={Search} />
+        <Stack.Screen name={LOGINPAGE_SCREEN} component={LoginScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
