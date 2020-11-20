@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Text, View, TextInput } from "react-native";
+import { Text, View, TextInput, SafeAreaView } from "react-native";
 import { SEARCH_SCREEN } from "../../routes";
 import { Button } from "react-native-elements";
 
@@ -17,10 +17,29 @@ function LoginScreen() {
         backgroundColor: "#ecf0f1",
       }}
     >
+      <SafeAreaView
+        style={{
+          flex: 1,
+          backgroundColor: "rgb(187, 122, 68)",
+          justifyContent: "flex-end",
+          width: 500,
+          alignItems: "center",
+          padding: 20,
+        }}
+      >
+        <Text
+          style={{
+            fontWeight: "bold",
+            fontSize: 30,
+            color: "white",
+            padding: 20,
+          }}
+        ></Text>
+      </SafeAreaView>
       <View
         style={{
           width: 500,
-          height: 350,
+          height: 300,
           backgroundColor: "#B97A45",
         }}
       >
@@ -39,17 +58,17 @@ function LoginScreen() {
           TrueStay
         </Text>
       </View>
-      <View style={{ width: 500, height: 50, backgroundColor: "#ecf0f1" }} />
+      <View style={{ width: 500, height: 30, backgroundColor: "#ecf0f1" }} />
 
       <TextInput
         //value={this.state.username}
         // onChangeText={(username) => this.setState({ username })}
         placeholder={"Username"}
         style={{
-          width: 200,
+          width: 250,
           height: 44,
           padding: 10,
-          borderWidth: 1,
+          borderWidth: 2,
           borderColor: "#B97A45",
           marginBottom: 10,
           borderRadius: 35,
@@ -59,10 +78,10 @@ function LoginScreen() {
         placeholder={"Password"}
         secureTextEntry={true}
         style={{
-          width: 200,
+          width: 250,
           height: 44,
           padding: 10,
-          borderWidth: 1,
+          borderWidth: 2,
           borderColor: "#B97A45",
           marginBottom: 10,
           borderRadius: 35,
@@ -73,6 +92,7 @@ function LoginScreen() {
         title="Log in"
         //onPress={_onPressSubmit}
       />
+      <View style={{ width: 500, height: 30, backgroundColor: "#ecf0f1" }} />
     </View>
   );
 }
