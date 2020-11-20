@@ -1,52 +1,78 @@
-import React from "react";
-import { Button, Text, TextInput, View } from "react-native";
+import React, { useState } from "react";
+import { Text, View, TextInput } from "react-native";
 import { SEARCH_SCREEN } from "../../routes";
+import { Button } from "react-native-elements";
 
-function LoginScreen(navigation) {
+function LoginScreen() {
+  const [outputText, setOutputText] = useState(
+    "Open up App.js to start working on your app!"
+  );
   //hooks
   return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Text>Welcome to Truestay </Text>
-
+    <View
+      style={{
+        flex: 1,
+        alignItems: "center",
+        justifyContent: "center",
+        backgroundColor: "#ecf0f1",
+      }}
+    >
       <View
         style={{
-          flex: 1,
-          alignItems: "center",
-          justifyContent: "center",
-          backgroundColor: "#ecf0f1",
+          width: 500,
+          height: 350,
+          backgroundColor: "#B97A45",
         }}
       >
-        <TextInput
-          //value={this.state.username}
-          // onChangeText={(username) => this.setState({ username })}
-          placeholder={"Username"}
+        <Text
           style={{
-            width: 200,
-            height: 44,
-            padding: 10,
-            borderWidth: 1,
-            borderColor: "black",
-            marginBottom: 10,
+            color: "#ffffff",
+            fontSize: 50,
+            fontWeight: "bold",
+            textAlign: "center",
+            justifyContent: "center",
           }}
-        />
-        <TextInput
-          placeholder={"Password"}
-          secureTextEntry={true}
-          style={{
-            width: 200,
-            height: 44,
-            padding: 10,
-            borderWidth: 1,
-            borderColor: "black",
-            marginBottom: 10,
-          }}
-        />
-
-        <Button
-          title={"Login"}
-          onPress={() => navigation.navigate(SEARCH_SCREEN)}
-        />
+        >
+          {"\n"}
+          Welcome to
+          {"\n"}
+          TrueStay
+        </Text>
       </View>
+      <View style={{ width: 500, height: 50, backgroundColor: "#ecf0f1" }} />
+
+      <TextInput
+        //value={this.state.username}
+        // onChangeText={(username) => this.setState({ username })}
+        placeholder={"Username"}
+        style={{
+          width: 200,
+          height: 44,
+          padding: 10,
+          borderWidth: 1,
+          borderColor: "#B97A45",
+          marginBottom: 10,
+          borderRadius: 35,
+        }}
+      />
+      <TextInput
+        placeholder={"Password"}
+        secureTextEntry={true}
+        style={{
+          width: 200,
+          height: 44,
+          padding: 10,
+          borderWidth: 1,
+          borderColor: "#B97A45",
+          marginBottom: 10,
+          borderRadius: 35,
+        }}
+      />
+
+      <Button
+        title="Log in"
+        //onPress={_onPressSubmit}
+      />
     </View>
   );
 }
