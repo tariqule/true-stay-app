@@ -26,12 +26,12 @@ function Navigator() {
           cardOverlayEnabled: true,
           headerShown: false,
         })}
-      >
-        <Stack.Screen name={MENU_SCREEN} component={MenuScreen} />        
+      >                
         <Stack.Screen name={ONBOARDING_SCREEN} component={OnboardingScreen} />
         <Stack.Screen name={LOGIN_SCREEN} component={LoginScreen} />
         <Stack.Screen name={SIGNUP_SCREEN} component={SignupScreen} />
-        <Stack.Screen name={SEARCH_SCREEN} component={Search} />                
+        <Stack.Screen name={SEARCH_SCREEN} component={Search} />
+        <Stack.Screen name={MENU_SCREEN} component={MenuScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
