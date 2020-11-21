@@ -21,7 +21,7 @@ if (Dimensions.get("screen").height < 800) {
 
 export const PostListingScreen = () => {
   return (
-    <ScrollView style={styles.container} centerContent={true}>
+    <ScrollView style={styles.container}>
       <View style={{ height: screenHeight }}>
         <SafeAreaView style={styles.header}>
           <Text style={styles.heading}>Post Listing</Text>
