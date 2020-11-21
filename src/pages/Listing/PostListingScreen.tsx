@@ -1,4 +1,5 @@
 import React from "react";
+import { ScrollView } from "react-native";
 import {
   View,
   StyleSheet,
@@ -12,38 +13,45 @@ import { color } from "react-native-reanimated";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 const screenWidth = Dimensions.get("screen").width;
+var screenHeight = Dimensions.get("screen").height;
+
+if (Dimensions.get("screen").height < 800) {
+  screenHeight = Dimensions.get("screen").height + 100;
+}
 
 export const PostListingScreen = () => {
   return (
-    <View style={styles.container}>
-      <SafeAreaView style={styles.header}>
-        <Text style={styles.heading}>Post Listing</Text>
-      </SafeAreaView>
-      <View style={styles.body}>
-        <View style={styles.main}>
-          <TextInput style={styles.input} placeholder="Title" />
-          <TextInput style={styles.input} placeholder="Description" />
-          <TextInput style={styles.input} placeholder="Address" />
-          <View style={styles.photoView}>
-            <Text style={styles.texts}>Photos</Text>
+    <ScrollView style={styles.container} centerContent={true}>
+      <View style={{ height: screenHeight }}>
+        <SafeAreaView style={styles.header}>
+          <Text style={styles.heading}>Post Listing</Text>
+        </SafeAreaView>
+        <View style={styles.body}>
+          <View style={styles.main}>
+            <TextInput style={styles.input} placeholder="Title" />
+            <TextInput style={styles.input} placeholder="Description" />
+            <TextInput style={styles.input} placeholder="Address" />
+            <View style={styles.photoView}>
+              <Text style={styles.texts}>Photos</Text>
+              <TouchableOpacity
+                style={styles.PhotoButton}
+                onPress={() => console.log("upload")}
+              >
+                <Text style={styles.buttonText}>Choose</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+          <View style={styles.footer}>
             <TouchableOpacity
-              style={styles.PhotoButton}
-              onPress={() => console.log("upload")}
+              style={styles.Button}
+              onPress={() => console.log("Signed Up")}
             >
-              <Text style={styles.buttonText}>Choose</Text>
+              <Text style={styles.buttonText}>Submit</Text>
             </TouchableOpacity>
           </View>
         </View>
-        <View style={styles.footer}>
-          <TouchableOpacity
-            style={styles.Button}
-            onPress={() => console.log("Signed Up")}
-          >
-            <Text style={styles.buttonText}>Submit</Text>
-          </TouchableOpacity>
-        </View>
       </View>
-    </View>
+    </ScrollView>
   );
 };
 
@@ -57,7 +65,6 @@ const styles = StyleSheet.create({
     backgroundColor: "rgb(187, 122, 68)",
     justifyContent: "flex-end",
     alignItems: "flex-start",
-    padding: 20,
   },
   heading: {
     fontWeight: "bold",
@@ -86,11 +93,11 @@ const styles = StyleSheet.create({
   },
   input: {
     width: screenWidth - 30,
-    borderRadius: 20,
+    borderRadius: 15,
     borderColor: "rgb(187, 122, 68)",
     borderWidth: 1.5,
-    padding: 15,
-    margin: 15,
+    padding: 12,
+    margin: 20,
     fontSize: 15,
   },
   Button: {
@@ -106,7 +113,6 @@ const styles = StyleSheet.create({
     width: 100,
     borderRadius: 30,
     alignItems: "center",
-    //padding: 5,
   },
   footer: {
     flex: 1,
