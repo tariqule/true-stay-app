@@ -15,23 +15,19 @@ import {
 } from "../../styles/global-styles";
 
 import { Ionicons } from "@expo/vector-icons";
-import { Modal } from "react-native";
-import ImageViewer from "react-native-image-zoom-viewer";
+// import { Modal } from "react-native";
+// import ImageViewer from "react-native-image-zoom-viewer";
 
 const screenWidth = Dimensions.get("window").width;
 const screenHeight = Dimensions.get("window").height;
-
-const images = [
-  {
-    url: "",
-    props: {
-      // Or you can set source directory.
-      source: { houses },
-    },
-  },
-];
+const images = [house1, house2, houses1, houses];
 
 function DetailsPageScreen({ navigation }) {
+  state = {
+    active: 0,
+  };
+
+  change = () => {};
   return (
     <View
       style={{
@@ -59,13 +55,52 @@ function DetailsPageScreen({ navigation }) {
         </Text>
       </View>
 
-      <View>
+      {/* <View>
         <Modal visible={false} transparent={true}>
           <ImageViewer imageUrls={images} />
         </Modal>
+      </View> */}
+
+      <View
+        style={{
+          marginTop: 10,
+          screenWidth,
+          // screenHeight: "60%",
+          borderRadius: 20,
+        }}
+      >
+        <ScrollView
+          paddingEnabled
+          horizontal
+          onScroll={this.change}
+          style={{ screenWidth }}
+          showsHorizontalScrollIndicator={false}
+        >
+          {images.map((image, index) => (
+            <Image
+              key={index}
+              source={{ uri: image }}
+              style={{ width: "100%", height: 300, resizeMode: "contain" }}
+            />
+          ))}
+        </ScrollView>
+        <View
+          style={{
+            flexDirection: "row",
+            position: "absolute",
+            bottom: 0,
+            alignSelf: "center",
+          }}
+        >
+          {images.map((i, k) => (
+            <Text key={k} style={{ color: "#fff" }}>
+              ⬤
+            </Text>
+          ))}
+        </View>
       </View>
 
-      <View>
+      {/* <View>
         <View>
           <Text
             style={{
@@ -130,7 +165,7 @@ function DetailsPageScreen({ navigation }) {
             </Text>
           </TouchableOpacity>
         </View>
-      </View>
+      </View> */}
     </View>
   );
 }
