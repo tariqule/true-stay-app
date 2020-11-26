@@ -1,15 +1,15 @@
 import React from "react";
+import { ScrollView } from "react-native";
 import {
   View,
-  Text,
   StyleSheet,
+  Text,
   Dimensions,
-  SafeAreaView,
   TextInput,
-  ScrollView,
+  TouchableOpacity,
 } from "react-native";
-import { TouchableOpacity } from "react-native-gesture-handler";
-import Icon from "react-native-vector-icons/FontAwesome";
+import { color } from "react-native-reanimated";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const screenWidth = Dimensions.get("screen").width;
 var screenHeight = Dimensions.get("screen").height;
@@ -18,37 +18,34 @@ if (Dimensions.get("screen").height < 800) {
   screenHeight = Dimensions.get("screen").height + 100;
 }
 
-export const SignUpScreen = () => {
+export const ModifyListingScreen = () => {
   return (
     <ScrollView style={styles.container}>
       <View style={{ height: screenHeight }}>
         <SafeAreaView style={styles.header}>
-          <Text style={styles.heading}>TrueStay</Text>
+          <Text style={styles.heading}>Modify Listing</Text>
         </SafeAreaView>
         <View style={styles.body}>
           <View style={styles.main}>
-            <TextInput style={styles.input} placeholder="Username" />
-            <TextInput style={styles.input} placeholder="Password" />
-            <TextInput style={styles.input} placeholder="Confirm Password" />
+            <TextInput style={styles.input} placeholder="Title" />
+            <TextInput style={styles.input} placeholder="Description" />
+            <TextInput style={styles.input} placeholder="Address" />
+            <View style={styles.photoView}>
+              <Text style={styles.texts}>Photos</Text>
+              <TouchableOpacity
+                style={styles.PhotoButton}
+                onPress={() => console.log("upload")}
+              >
+                <Text style={styles.buttonText}>Choose</Text>
+              </TouchableOpacity>
+            </View>
           </View>
           <View style={styles.footer}>
             <TouchableOpacity
-              style={styles.signUpButton}
+              style={styles.Button}
               onPress={() => console.log("Signed Up")}
             >
-              <Text style={styles.buttonText}>Sign Up</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.fbButton}
-              onPress={() => console.log("FB button ")}
-            >
-              <Icon
-                style={styles.icon}
-                name="facebook"
-                size={20}
-                color="rgb(36, 160, 255)"
-              />
-              <Text style={styles.fbButtonText}>Sign Up with FaceBook</Text>
+              <Text style={styles.buttonText}>Continue</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -66,13 +63,13 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "rgb(187, 122, 68)",
     justifyContent: "flex-end",
-    alignItems: "center",
+    alignItems: "flex-start",
   },
   heading: {
     fontWeight: "bold",
     fontSize: 30,
-    color: "white",
     padding: 20,
+    color: "white",
   },
   body: {
     flex: 5,
@@ -85,10 +82,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
     width: screenWidth - 30,
   },
-  footer: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
+  buttonText: {
+    color: "white",
+    fontSize: 20,
+  },
+  texts: {
+    fontSize: 18,
+    marginBottom: 5,
   },
   input: {
     width: screenWidth - 30,
@@ -99,17 +99,7 @@ const styles = StyleSheet.create({
     margin: 20,
     fontSize: 15,
   },
-  buttonText: {
-    color: "white",
-    fontSize: 20,
-  },
-  fbButtonText: {
-    color: "rgb(36, 160, 255)",
-    textAlign: "center",
-    //paddingRight: 50,
-    fontSize: 20,
-  },
-  signUpButton: {
+  Button: {
     backgroundColor: "rgb(187, 122, 68)",
     width: screenWidth - 30,
     borderRadius: 30,
@@ -117,18 +107,19 @@ const styles = StyleSheet.create({
     margin: 10,
     padding: 12,
   },
-  fbButton: {
-    borderColor: "rgb(36, 160, 255)",
-    borderWidth: 1.5,
-    width: screenWidth - 30,
+  PhotoButton: {
+    backgroundColor: "rgb(187, 122, 68)",
+    width: 100,
     borderRadius: 30,
-    margin: 10,
-    padding: 12,
     alignItems: "center",
-    flexDirection: "row",
+  },
+  footer: {
+    flex: 1,
+    alignItems: "center",
     justifyContent: "center",
   },
-  icon: {
-    width: 20,
+  photoView: {
+    fontSize: 20,
+    width: screenWidth - 30,
   },
 });

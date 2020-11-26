@@ -6,6 +6,7 @@ import InitialScreen from "../pages/LoginPage";
 import SignUpScreen from "../pages/Signup";
 import OnboardingScreen from "../pages/Onboarding";
 import { PostListingScreen } from "../pages/Listing/PostListingScreen";
+import { ModifyListingScreen } from "../pages/Listing/ModifyListingScreen";
 import Search from "../pages/Search";
 import { MenuScreen } from "../pages/Menu";
 import LoginScreen from "../pages/LoginPage";
@@ -20,6 +21,7 @@ export const POSTLISTING_SCREEN = "POSTLISTING_SCREEN";
 export const SEARCH_SCREEN = "SEARCH_SCREEN";
 export const LOGINPAGE_SCREEN = "LOGINPAGE_SCREEN";
 export const MENU_SCREEN = "MENU_SCREEN";
+export const MODIFYLISTING_SCREEN = "MODIFYLISTING_SCREEN";
 
 function Navigator() {
   return (
@@ -35,6 +37,10 @@ function Navigator() {
         <Stack.Screen name={LOGIN_SCREEN} component={InitialScreen} />
         <Stack.Screen name={SIGNUP_SCREEN} component={SignUpScreen} />
         <Stack.Screen name={POSTLISTING_SCREEN} component={PostListingScreen} />
+        <Stack.Screen
+          name={MODIFYLISTING_SCREEN}
+          component={ModifyListingScreen}
+        />
         {/* <Stack.Screen name={SIGNUP_SCREEN} component={SignUpScreen} /> */}
         <Stack.Screen name={SEARCH_SCREEN} component={Search} />
         <Stack.Screen name={MENU_SCREEN} component={MenuScreen} />

@@ -6,7 +6,6 @@ import {
   Text,
   Dimensions,
   TextInput,
-  Button,
   TouchableOpacity,
 } from "react-native";
 import { color } from "react-native-reanimated";
