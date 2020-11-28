@@ -10,6 +10,7 @@ import { ModifyListingScreen } from "../pages/Listing/ModifyListingScreen";
 import Search from "../pages/Search";
 import { MenuScreen } from "../pages/Menu";
 import LoginScreen from "../pages/LoginPage";
+import PassResetScreen from "../pages/PasswordReset";
 
 const Stack = createStackNavigator();
 
@@ -22,6 +23,7 @@ export const SEARCH_SCREEN = "SEARCH_SCREEN";
 export const LOGINPAGE_SCREEN = "LOGINPAGE_SCREEN";
 export const MENU_SCREEN = "MENU_SCREEN";
 export const MODIFYLISTING_SCREEN = "MODIFYLISTING_SCREEN";
+export const PASSRESET_SCREEN = "PASSRESET_SCREEN"
 
 function Navigator() {
   return (
@@ -33,6 +35,7 @@ function Navigator() {
           headerShown: false,
         })}
       >
+
         <Stack.Screen name={ONBOARDING_SCREEN} component={OnboardingScreen} />
         <Stack.Screen name={LOGIN_SCREEN} component={InitialScreen} />
         <Stack.Screen name={SIGNUP_SCREEN} component={SignUpScreen} />
@@ -45,6 +48,7 @@ function Navigator() {
         <Stack.Screen name={SEARCH_SCREEN} component={Search} />
         <Stack.Screen name={MENU_SCREEN} component={MenuScreen} />
         <Stack.Screen name={LOGINPAGE_SCREEN} component={LoginScreen} />
+        <Stack.Screen name={PASSRESET_SCREEN} component={PassResetScreen}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
