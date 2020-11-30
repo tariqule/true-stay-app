@@ -17,17 +17,33 @@ import {
 import { Ionicons } from "@expo/vector-icons";
 // import { Modal } from "react-native";
 // import ImageViewer from "react-native-image-zoom-viewer";
+import Carousel from "react-native-snap-carousel";
 
 const screenWidth = Dimensions.get("window").width;
 const screenHeight = Dimensions.get("window").height;
-const images = [house1, house2, houses1, houses];
+const images = [
+  { title: house1 },
+  { title: house2 },
+  { title: houses1 },
+  { title: houses },
+];
+
+function _renderItem({ item, index }) {
+  return (
+    <View
+      style={{
+        backgroundColor: "#000",
+        borderRadius: 5,
+        height: 250,
+        padding: 10,
+      }}
+    >
+      <Text style={{ fontSize: 30 }}>{item.images}</Text>
+    </View>
+  );
+}
 
 function DetailsPageScreen({ navigation }) {
-  state = {
-    active: 0,
-  };
-
-  change = () => {};
   return (
     <View
       style={{
@@ -55,12 +71,6 @@ function DetailsPageScreen({ navigation }) {
         </Text>
       </View>
 
-      {/* <View>
-        <Modal visible={false} transparent={true}>
-          <ImageViewer imageUrls={images} />
-        </Modal>
-      </View> */}
-
       <View
         style={{
           marginTop: 10,
@@ -69,38 +79,31 @@ function DetailsPageScreen({ navigation }) {
           borderRadius: 20,
         }}
       >
-        <ScrollView
+        <Carousel
+          layout={"default"}
+          data={images}
+          sliderWidth={300}
+          itemWidth={300}
+          renderItem={_renderItem}
+        />
+
+        {/* <ScrollView
           paddingEnabled
           horizontal
-          onScroll={this.change}
           style={{ screenWidth }}
           showsHorizontalScrollIndicator={false}
         >
           {images.map((image, index) => (
             <Image
               key={index}
-              source={{ uri: image }}
+              source={{ image }}
               style={{ width: "100%", height: 300, resizeMode: "contain" }}
             />
           ))}
-        </ScrollView>
-        <View
-          style={{
-            flexDirection: "row",
-            position: "absolute",
-            bottom: 0,
-            alignSelf: "center",
-          }}
-        >
-          {images.map((i, k) => (
-            <Text key={k} style={{ color: "#fff" }}>
-              ⬤
-            </Text>
-          ))}
-        </View>
+        </ScrollView> */}
       </View>
 
-      {/* <View>
+      <View style={{ paddingLeft: 10 }}>
         <View>
           <Text
             style={{
@@ -165,7 +168,7 @@ function DetailsPageScreen({ navigation }) {
             </Text>
           </TouchableOpacity>
         </View>
-      </View> */}
+      </View>
     </View>
   );
 }
