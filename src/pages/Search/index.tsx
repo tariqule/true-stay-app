@@ -1,20 +1,34 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState, useEffect } from "react";
-import { StyleSheet, Text, View, FlatList } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
+import {Picker} from '@react-native-picker/picker';
 import { SearchBar } from 'react-native-elements';
+import { themeColorBase, themeColorPeach, themeColorPuff } from "../../styles/global-styles";
 
 const data: any[] = [
     {title: "New room at 234 Yonge",
+    price: 600,
+    location: "234 Yonge",
     description:"600$ a month all inclusive"},
     {title: "Best room for rent in town",
+    price: 900,
+    location: "444 Dundas Street West",
     description:"Near Dundas Station"},
-    {title: "Cheapest one",
-    description:"300$ a month"},
+    {title: "Cheapest one in town",
+    price: 50,
+    location: "Warden Park",
+    description:"50$ a month"},
     {title: "245 Bridletowne Circle",
+    price: 500,
+    location: "245 Bridletowne Circle",
     description:"Don't look elsewhere"},
     {title: "44 Finch Ave East",
+    price: 600,
+    location: "44 Finch Ave East",
     description:"This is what you need"},
     {title: "1200 Warden",
+    price: 600,
+    location: "1200 Warden",
     description:"testing content"},
   ];
 
@@ -22,6 +36,7 @@ function Search(){
 
     const [searchTerm, setSearchTerm] = useState("");
     const [results, setResults] = useState([]);
+    const [filterValue, setFilterValue] = useState("price");
   
     const updateSearch = (text: React.SetStateAction<string>) => {
       setSearchTerm(text);
@@ -29,12 +44,24 @@ function Search(){
     
     useEffect(()=>{
       const newData = data.filter(item=>{
-        const itemData = item.title ? item.title.toUpperCase() : ''.toUpperCase();
-        const textData = searchTerm.toUpperCase();
+        var itemData = '';
+        switch(filterValue) {
+          case 'title':
+            itemData = item.title ? item.title.toUpperCase() : '';
+            break;
+          case 'price':
+            itemData = item.price ? item.price.toString() : '';
+            break;
+          case 'location':
+            itemData = item.location ? item.location.toUpperCase() : '';
+            break;
+        }
+        
+        const textData = searchTerm.toUpperCase();        
         return itemData.indexOf(textData) > -1;
       });
       setResults(newData)
-    }, [searchTerm]);
+    }, [searchTerm, filterValue]);
   
     const renderList = results.map(record=>{
       return(
@@ -43,7 +70,13 @@ function Search(){
             {record.title}
           </Text>
           <Text style={styles.resultContent}>
-            {record.description}
+            Price: {record.price}
+          </Text>
+          <Text style={styles.resultContent}>
+            Location: {record.location}
+          </Text>
+          <Text style={styles.resultContent}>
+            Description: {record.description}
           </Text>
         </View>
         
@@ -62,6 +95,18 @@ function Search(){
             lightTheme={true}
             />
         </View>
+
+        <View style = {styles.picker}>
+          <Picker
+            selectedValue={filterValue}
+            style={{ height: 40, width: 150}}
+            onValueChange={(itemValue) => setFilterValue(itemValue)}
+          >
+            <Picker.Item label="By Title" value="title" />
+            <Picker.Item label="By Location" value="location" />
+            <Picker.Item label="By Price" value="price" />
+          </Picker>
+        </View>
         <View style={styles.listResult}>
           {renderList}
         </View>
@@ -79,11 +124,19 @@ const styles = StyleSheet.create({
     },
     header:{
       fontSize: 20,
-      color: "#f0990e",
+      color: themeColorBase,
     },
     searchBar:{
       alignSelf: 'stretch',
       backgroundColor: 'white',
+    },
+    picker: {
+      alignSelf: 'flex-end',
+      borderRadius: 10,
+      borderWidth: 1,
+      marginTop: 10,
+      marginRight: 10,
+      borderColor:themeColorBase,      
     },
     listResult:{
       alignSelf: 'stretch',
@@ -94,16 +147,16 @@ const styles = StyleSheet.create({
       borderColor: "white",
       borderWidth:2,
       padding: 5,
-      backgroundColor: "#fceace"
+      backgroundColor: themeColorPuff
       
     },
     resultTitle:{
       fontWeight:'bold',
-      color: "#f0990e",
+      color: themeColorBase,
     },
     resultContent:{
       paddingLeft:10,
-      color: "#f0990e",
+      color: themeColorBase,
     }
 });
 export default Search;
