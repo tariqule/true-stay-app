@@ -17,7 +17,7 @@ import {
 import { Ionicons } from "@expo/vector-icons";
 // import { Modal } from "react-native";
 // import ImageViewer from "react-native-image-zoom-viewer";
-import Carousel from "react-native-snap-carousel";
+// import Carousel from "react-native-snap-carousel";
 
 const screenWidth = Dimensions.get("window").width;
 const screenHeight = Dimensions.get("window").height;
