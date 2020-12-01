@@ -6,7 +6,7 @@ function LoginScreen({ navigation }) {
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
       <Button
-        onPress={() => navigation.navigate(SIGNUP_SCREEN)}
+        onPress={() => navigation.navigate(SIGNUP_SCREEN)} // go to sign up page
         title="go to sign up"
       ></Button>
       <Button
