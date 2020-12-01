@@ -1,1 +1,9 @@
 export const trueStayLogo = require("../../../assets/images/trueStay.jpeg");
+export const apartments = require("../../../assets/images/apartments1.jpeg");
+export const apartments1 = require("../../../assets/images/apartments.jpeg");
+export const building1 = require("../../../assets/images/building1.jpeg");
+export const building2 = require("../../../assets/images/building2.jpeg");
+export const house1 = require("../../../assets/images/house1.jpeg");
+export const house2 = require("../../../assets/images/house2.jpeg");
+export const houses = require("../../../assets/images/houses.jpeg");
+export const houses1 = require("../../../assets/images/houses1.jpeg");

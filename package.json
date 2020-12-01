@@ -12,6 +12,8 @@
     "@react-navigation/drawer": "^5.9.3",
     "@react-navigation/native": "^5.7.5",
     "@react-navigation/stack": "^5.9.2",
+    "@types/react-native-snap-carousel": "^3.8.2",
+    "expo-cli": "^3.28.2",
     "expo": "^39.0.3",
     "expo-font": "~8.3.0",
     "expo-status-bar": "~1.0.2",
