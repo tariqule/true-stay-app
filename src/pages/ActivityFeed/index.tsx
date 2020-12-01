@@ -25,7 +25,8 @@ import * as React from "react";
 import { Ionicons } from "@expo/vector-icons";
 import * as Font from "expo-font";
 // import { ListView } from "../../componentsListView/index";
-import { DETAILSPAGE_SCREEN } from "../../routes";
+import { DETAILSPAGE_SCREEN, MENU_SCREEN, SEARCH_SCREEN } from "../../routes";
+import Navbar from "../../components/Header";
 
 const screenWidth = Dimensions.get("window").width;
 const screenHeight = Dimensions.get("window").height;
@@ -68,7 +69,14 @@ function ActivityFeedScreen({ navigation }) {
         paddingLeft: 10,
       }}
     >
-      <View
+      <Navbar
+        headerTitle={"Find your place to stay"}
+        showMenu
+        onPressMenu={() => navigation.navigate(MENU_SCREEN)}
+        onPressSearchIcon={() => navigation.navigate(SEARCH_SCREEN)}
+        showSearchIcon
+      />
+      {/* <View
         style={{
           flexDirection: "row",
           // borderWidth: 2,
@@ -103,11 +111,9 @@ function ActivityFeedScreen({ navigation }) {
             style={{ paddingLeft: 275 }}
           />
         </TouchableOpacity>
-      </View>
+      </View> */}
 
-      <Text style={{ fontSize: 30, fontWeight: "bold", marginTop: -80 }}>
-        Find your place to stay
-      </Text>
+      <Text style={{ fontSize: 30, fontWeight: "bold", marginTop: -80 }}></Text>
       <View style={{ height: 20 }}></View>
       <Text style={{ fontSize: 25, paddingBottom: 20 }}>Apartments</Text>
 
@@ -220,122 +226,6 @@ function ActivityFeedScreen({ navigation }) {
           </View>
         ))}
       </ScrollView>
-
-      {/* <ScrollView
-        styles={{
-          justifyContent: "space-between",
-          paddingRight: 10,
-          borderRadius: 20,
-        }}
-        horizontal={true}
-        showsHorizontalScrollIndicator={false}
-      >
-        <TouchableOpacity
-          style={{
-            backgroundColor: "white",
-            width: screenWidth * 0.35,
-            height: screenHeight * 0.25,
-            // alignSelf: "center",
-            borderRadius: 20,
-            // paddingLeft: 10,
-            bottom: 0,
-          }}
-        >
-          <Image
-            source={house1}
-            style={{ width: "100%", height: "60%", borderRadius: 20 }}
-          ></Image>
-          <Text
-            style={{
-              color: "#BB7A44",
-              // textAlign: "center",
-              padding: 10,
-              fontSize: 15,
-            }}
-          >
-            50 Now Street
-          </Text>
-          <Text
-            style={{
-              color: "#BB7A44",
-              textAlign: "right",
-              fontSize: 15,
-            }}
-          >
-            $500
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={{
-            backgroundColor: "white",
-            width: screenWidth * 0.35,
-            height: screenHeight * 0.25,
-            // alignSelf: "center",
-            borderRadius: 20,
-            // paddingLeft: 10,
-            bottom: 0,
-          }}
-        >
-          <Image
-            source={house2}
-            style={{ width: "100%", height: "60%", borderRadius: 20 }}
-          ></Image>
-          <Text
-            style={{
-              color: "#BB7A44",
-              // textAlign: "center",
-              padding: 10,
-              fontSize: 14,
-            }}
-          >
-            931 Progress
-          </Text>
-          <Text
-            style={{
-              color: "#BB7A44",
-              textAlign: "right",
-              fontSize: 15,
-            }}
-          >
-            $500
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={{
-            backgroundColor: "white",
-            width: screenWidth * 0.35,
-            height: screenHeight * 0.25,
-            // alignSelf: "center",
-            borderRadius: 20,
-            // paddingLeft: 10,
-            bottom: 0,
-          }}
-        >
-          <Image
-            source={houses1}
-            style={{ width: "100%", height: "60%", borderRadius: 20 }}
-          ></Image>
-          <Text
-            style={{
-              color: "#BB7A44",
-              // textAlign: "center",
-              padding: 10,
-              fontSize: 14,
-            }}
-          >
-            60 Queen Street
-          </Text>
-          <Text
-            style={{
-              color: "#BB7A44",
-              textAlign: "right",
-              fontSize: 15,
-            }}
-          >
-            $500
-          </Text>
-        </TouchableOpacity>
-      </ScrollView> */}
     </View>
   );
 }

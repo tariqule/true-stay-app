@@ -3,7 +3,7 @@ import { View, Text, Button } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import InitialScreen from "../pages/LoginPage";
-import SignUpScreen from "../pages/Signup";
+import SignUpScreen from "../pages/Signup/SignUpScreen";
 import OnboardingScreen from "../pages/Onboarding";
 import { PostListingScreen } from "../pages/Listing/PostListingScreen";
 import { ModifyListingScreen } from "../pages/Listing/ModifyListingScreen";
@@ -14,6 +14,7 @@ import PassResetScreen from "../pages/PasswordReset";
 
 import ActivityFeedScreen from "../pages/ActivityFeed";
 import DetailsPageScreen from "../pages/DetailsPage";
+import LandlordListingsScreen from "../pages/LandlordListings";
 
 const Stack = createStackNavigator();
 
@@ -30,6 +31,7 @@ export const PASSRESET_SCREEN = "PASSRESET_SCREEN";
 
 export const ACTIVITYFEED_SCREEN = "ACTIVITYFEED_SCREEN";
 export const DETAILSPAGE_SCREEN = "DETAILSPAGE_SCREEN;";
+export const LANDLORD_LISTINGS = "LANDLORD_LISTINGS;";
 
 function Navigator() {
   return (
@@ -41,7 +43,6 @@ function Navigator() {
           headerShown: false,
         })}
       >
-        <Stack.Screen name={SEARCH_SCREEN} component={Search} />
         <Stack.Screen name={ONBOARDING_SCREEN} component={OnboardingScreen} />
         {/* <Stack.Screen name={LOGIN_SCREEN} component={LoginScreen} /> */}
         {/* <Stack.Screen name={SIGNUP_SCREEN} component={SignupScreen} /> */}
@@ -49,6 +50,7 @@ function Navigator() {
           name={ACTIVITYFEED_SCREEN}
           component={ActivityFeedScreen}
         />
+        <Stack.Screen name={SEARCH_SCREEN} component={Search} />
         <Stack.Screen name={DETAILSPAGE_SCREEN} component={DetailsPageScreen} />
         <Stack.Screen name={LOGIN_SCREEN} component={InitialScreen} />
         <Stack.Screen name={SIGNUP_SCREEN} component={SignUpScreen} />
@@ -62,6 +64,10 @@ function Navigator() {
         <Stack.Screen name={MENU_SCREEN} component={MenuScreen} />
         <Stack.Screen name={LOGINPAGE_SCREEN} component={LoginScreen} />
         <Stack.Screen name={PASSRESET_SCREEN} component={PassResetScreen} />
+        <Stack.Screen
+          name={LANDLORD_LISTINGS}
+          component={LandlordListingsScreen}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
