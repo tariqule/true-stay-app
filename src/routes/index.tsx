@@ -12,6 +12,9 @@ import { MenuScreen } from "../pages/Menu";
 import LoginScreen from "../pages/LoginPage";
 import PassResetScreen from "../pages/PasswordReset";
 
+import ActivityFeedScreen from "../pages/ActivityFeed";
+import DetailsPageScreen from "../pages/DetailsPage";
+
 const Stack = createStackNavigator();
 
 //all the screen should be here
@@ -23,7 +26,10 @@ export const SEARCH_SCREEN = "SEARCH_SCREEN";
 export const LOGINPAGE_SCREEN = "LOGINPAGE_SCREEN";
 export const MENU_SCREEN = "MENU_SCREEN";
 export const MODIFYLISTING_SCREEN = "MODIFYLISTING_SCREEN";
-export const PASSRESET_SCREEN = "PASSRESET_SCREEN"
+export const PASSRESET_SCREEN = "PASSRESET_SCREEN";
+
+export const ACTIVITYFEED_SCREEN = "ACTIVITYFEED_SCREEN";
+export const DETAILSPAGE_SCREEN = "DETAILSPAGE_SCREEN;";
 
 function Navigator() {
   return (
@@ -37,6 +43,13 @@ function Navigator() {
       >
         <Stack.Screen name={SEARCH_SCREEN} component={Search} />
         <Stack.Screen name={ONBOARDING_SCREEN} component={OnboardingScreen} />
+        {/* <Stack.Screen name={LOGIN_SCREEN} component={LoginScreen} /> */}
+        {/* <Stack.Screen name={SIGNUP_SCREEN} component={SignupScreen} /> */}
+        <Stack.Screen
+          name={ACTIVITYFEED_SCREEN}
+          component={ActivityFeedScreen}
+        />
+        <Stack.Screen name={DETAILSPAGE_SCREEN} component={DetailsPageScreen} />
         <Stack.Screen name={LOGIN_SCREEN} component={InitialScreen} />
         <Stack.Screen name={SIGNUP_SCREEN} component={SignUpScreen} />
         <Stack.Screen name={POSTLISTING_SCREEN} component={PostListingScreen} />
@@ -45,10 +58,10 @@ function Navigator() {
           component={ModifyListingScreen}
         />
         {/* <Stack.Screen name={SIGNUP_SCREEN} component={SignUpScreen} /> */}
-        
+
         <Stack.Screen name={MENU_SCREEN} component={MenuScreen} />
         <Stack.Screen name={LOGINPAGE_SCREEN} component={LoginScreen} />
-        <Stack.Screen name={PASSRESET_SCREEN} component={PassResetScreen}/>
+        <Stack.Screen name={PASSRESET_SCREEN} component={PassResetScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
