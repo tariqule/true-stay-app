@@ -28,21 +28,6 @@ const images = [
   { title: houses },
 ];
 
-function _renderItem({ item, index }) {
-  return (
-    <View
-      style={{
-        backgroundColor: "#000",
-        borderRadius: 5,
-        height: 250,
-        padding: 10,
-      }}
-    >
-      <Text style={{ fontSize: 30 }}>{item.images}</Text>
-    </View>
-  );
-}
-
 function DetailsPageScreen({ navigation }) {
   return (
     <View
@@ -64,6 +49,7 @@ function DetailsPageScreen({ navigation }) {
             fontWeight: "bold",
             marginTop: 80,
             alignself: "center",
+            paddingLeft: 10,
             color: "white",
           }}
         >
@@ -74,40 +60,37 @@ function DetailsPageScreen({ navigation }) {
       <View
         style={{
           marginTop: 10,
-          screenWidth,
-          // screenHeight: "60%",
-          borderRadius: 20,
+          paddingLeft: 10,
         }}
       >
-        <Carousel
-          layout={"default"}
-          data={images}
-          sliderWidth={300}
-          itemWidth={300}
-          renderItem={_renderItem}
-        />
-
-        {/* <ScrollView
-          paddingEnabled
-          horizontal
-          style={{ screenWidth }}
-          showsHorizontalScrollIndicator={false}
+        <Text
+          style={{
+            fontSize: 18,
+            color: "grey",
+          }}
         >
-          {images.map((image, index) => (
-            <Image
-              key={index}
-              source={{ image }}
-              style={{ width: "100%", height: 300, resizeMode: "contain" }}
-            />
-          ))}
-        </ScrollView> */}
+          Photos
+        </Text>
       </View>
 
-      <View style={{ paddingLeft: 10 }}>
+      <View
+        style={{
+          marginTop: 10,
+          // paddingLeft: 30,
+          alignItems: "center",
+        }}
+      >
+        <Image
+          style={{ screenWidth, height: screenHeight * 0.3, borderRadius: 10 }}
+          source={require("../../../assets/images/houses.jpeg")}
+        />
+      </View>
+
+      <View style={{ paddingLeft: 10, paddingTop: 10 }}>
         <View>
           <Text
             style={{
-              fontSize: 30,
+              fontSize: 26,
               color: "grey",
             }}
           >
@@ -123,7 +106,7 @@ function DetailsPageScreen({ navigation }) {
           </Text>
           <Text
             style={{
-              fontSize: 30,
+              fontSize: 26,
               color: "grey",
             }}
           >
@@ -139,7 +122,7 @@ function DetailsPageScreen({ navigation }) {
           </Text>
           <Text
             style={{
-              fontSize: 30,
+              fontSize: 26,
               color: "grey",
             }}
           >
@@ -147,13 +130,13 @@ function DetailsPageScreen({ navigation }) {
           </Text>
         </View>
 
-        <View style={{ alignItems: "center" }}>
+        <View style={{ alignItems: "center", paddingTop: 20, paddingRight: 8 }}>
           <TouchableOpacity
             style={{
               borderRadius: 50,
               backgroundColor: themeColorBase,
-              height: 50,
-              width: 300,
+              height: 55,
+              width: screenWidth - 30,
             }}
           >
             <Text

@@ -65,6 +65,7 @@ function ActivityFeedScreen({ navigation }) {
         backgroundColor: themeColorBase,
         height: screenHeight,
         width: screenWidth,
+        paddingLeft: 10,
       }}
     >
       <View
@@ -83,7 +84,7 @@ function ActivityFeedScreen({ navigation }) {
             // paddingTop: 50,
             // paddingLeft: 10,
             height: "40%",
-            width: "15%",
+            width: "16%",
             justifyContent: "center",
             alignItems: "center",
             backgroundColor: "white",
@@ -127,7 +128,7 @@ function ActivityFeedScreen({ navigation }) {
                 width: screenWidth * 0.35,
                 height: screenHeight * 0.25,
                 // alignSelf: "center",
-                borderRadius: 20,
+                borderRadius: 10,
                 // paddingLeft: 10,
                 bottom: 0,
               }}
@@ -135,7 +136,7 @@ function ActivityFeedScreen({ navigation }) {
             >
               <Image
                 source={e.image}
-                style={{ width: "100%", height: "60%", borderRadius: 20 }}
+                style={{ width: "100%", height: "60%", borderRadius: 10 }}
               ></Image>
               <Text
                 style={{
@@ -151,7 +152,8 @@ function ActivityFeedScreen({ navigation }) {
                 style={{
                   color: "#BB7A44",
                   textAlign: "right",
-                  fontSize: 15,
+                  fontSize: 14,
+                  padding: 10,
                 }}
               >
                 ${e.amount}
@@ -184,7 +186,7 @@ function ActivityFeedScreen({ navigation }) {
                 width: screenWidth * 0.35,
                 height: screenHeight * 0.25,
                 // alignSelf: "center",
-                borderRadius: 20,
+                borderRadius: 10,
                 // paddingLeft: 10,
                 bottom: 0,
               }}
@@ -192,7 +194,7 @@ function ActivityFeedScreen({ navigation }) {
             >
               <Image
                 source={e.image}
-                style={{ width: "100%", height: "60%", borderRadius: 20 }}
+                style={{ width: "100%", height: "60%", borderRadius: 10 }}
               ></Image>
               <Text
                 style={{
@@ -208,7 +210,8 @@ function ActivityFeedScreen({ navigation }) {
                 style={{
                   color: "#BB7A44",
                   textAlign: "right",
-                  fontSize: 15,
+                  fontSize: 14,
+                  padding: 10,
                 }}
               >
                 ${e.amount}
