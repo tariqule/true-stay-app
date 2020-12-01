@@ -5,6 +5,7 @@ export const themeColorPuff = "#F9DCC4";
 export const themeColorIsabelline = "#F8EDEB";
 export const themeColorPink = "#FCD5CE";
 export const themeColorMelon = "#FFB5A7";
+export const fontColorGrey = "grey";
 
 const screenWidth = Dimensions.get("screen").width;
 var screenHeight = Dimensions.get("screen").height;
@@ -15,10 +16,8 @@ export const GlobalStyles = StyleSheet.create({
       backgroundColor: "white",
     },
     header: {
-      flex: 1,
-      backgroundColor: "rgb(187, 122, 68)",
-      justifyContent: "flex-end",
-      alignItems: "flex-start",
+      flex: 1.5,
+      backgroundColor: themeColorBase
     },
     heading: {
       fontWeight: "bold",
@@ -93,4 +92,40 @@ export const GlobalStyles = StyleSheet.create({
       fontSize: 20,
       width: screenWidth - 30,
     },
+    Title: {
+      flex:1,
+      fontSize: 50,
+      fontWeight: "bold",
+      justifyContent:"flex-end",
+      textAlignVertical:"bottom",
+      color: themeColorIsabelline
+    },
+    H1: {
+      fontSize: 30,
+      fontWeight: "bold",
+      alignSelf:"center",
+      color: themeColorBase
+    },
+    H2: {
+      fontSize: 20,
+      fontWeight: "bold",
+      alignSelf:"flex-start",
+      color: themeColorBase
+    },
+    DataFont:{
+      fontSize: 15,
+      color: fontColorGrey,
+    },
+    MainPhoto:{
+      flex: 3
+    },
+    PhotoImage:{
+      flex: 4,
+      justifyContent:"center",
+      alignItems:"center"
+    },
+    TextBody:{
+      flex: 5,
+      padding: screenWidth/50
+    }
   });
