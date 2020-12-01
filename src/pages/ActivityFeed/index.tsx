@@ -76,42 +76,6 @@ function ActivityFeedScreen({ navigation }) {
         onPressSearchIcon={() => navigation.navigate(SEARCH_SCREEN)}
         showSearchIcon
       />
-      {/* <View
-        style={{
-          flexDirection: "row",
-          // borderWidth: 2,
-          marginTop: 40,
-          // backgroundColor: "black",
-          paddingBottom: 0,
-        }}
-      >
-        <TouchableOpacity
-          style={{
-            // marginTop: 40,
-            // borderWidth: 0.5,
-            // paddingTop: 50,
-            // paddingLeft: 10,
-            height: "40%",
-            width: "16%",
-            justifyContent: "center",
-            alignItems: "center",
-            backgroundColor: "white",
-            borderRadius: 30,
-          }}
-          // onPress={() => navigation.navigate()}
-        >
-          <Ionicons name="md-camera" size={30} color="#000000" />
-        </TouchableOpacity>
-
-        <TouchableOpacity>
-          <Ionicons
-            name="md-search"
-            size={45}
-            color="white"
-            style={{ paddingLeft: 275 }}
-          />
-        </TouchableOpacity>
-      </View> */}
 
       <Text style={{ fontSize: 30, fontWeight: "bold", marginTop: -80 }}></Text>
       <View style={{ height: 20 }}></View>
