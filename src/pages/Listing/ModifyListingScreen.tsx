@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { ScrollView } from "react-native";
 import {
@@ -10,6 +11,7 @@ import {
 } from "react-native";
 import { color } from "react-native-reanimated";
 import { SafeAreaView } from "react-native-safe-area-context";
+import ButtonView from "../../components/Button";
 
 const screenWidth = Dimensions.get("screen").width;
 var screenHeight = Dimensions.get("screen").height;
@@ -19,6 +21,7 @@ if (Dimensions.get("screen").height < 800) {
 }
 
 export const ModifyListingScreen = () => {
+  const navigation = useNavigation();
   return (
     <ScrollView style={styles.container}>
       <View style={{ height: screenHeight }}>
@@ -41,12 +44,7 @@ export const ModifyListingScreen = () => {
             </View>
           </View>
           <View style={styles.footer}>
-            <TouchableOpacity
-              style={styles.Button}
-              onPress={() => console.log("Signed Up")}
-            >
-              <Text style={styles.buttonText}>Continue</Text>
-            </TouchableOpacity>
+            <ButtonView title={"Done"} onPress={() => navigation.goBack()} />
           </View>
         </View>
       </View>
@@ -112,11 +110,13 @@ const styles = StyleSheet.create({
     width: 100,
     borderRadius: 30,
     alignItems: "center",
+    height: 30,
   },
   footer: {
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
+    marginBottom: 150,
   },
   photoView: {
     fontSize: 20,

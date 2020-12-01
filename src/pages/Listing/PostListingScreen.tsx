@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { ScrollView } from "react-native";
 import {
@@ -8,8 +9,11 @@ import {
   TextInput,
   TouchableOpacity,
 } from "react-native";
+import { Button } from "react-native-elements";
 import { color } from "react-native-reanimated";
 import { SafeAreaView } from "react-native-safe-area-context";
+import ButtonView from "../../components/Button";
+import { LANDLORD_LISTINGS } from "../../routes";
 
 const screenWidth = Dimensions.get("screen").width;
 var screenHeight = Dimensions.get("screen").height;
@@ -19,6 +23,8 @@ if (Dimensions.get("screen").height < 800) {
 }
 
 export const PostListingScreen = () => {
+  const navigation = useNavigation();
+
   return (
     <ScrollView style={styles.container}>
       <View style={{ height: screenHeight }}>
@@ -32,21 +38,29 @@ export const PostListingScreen = () => {
             <TextInput style={styles.input} placeholder="Address" />
             <View style={styles.photoView}>
               <Text style={styles.texts}>Photos</Text>
-              <TouchableOpacity
+              {/* <TouchableOpacity
                 style={styles.PhotoButton}
                 onPress={() => console.log("upload")}
               >
                 <Text style={styles.buttonText}>Choose</Text>
-              </TouchableOpacity>
+              </TouchableOpacity> */}
+              <Button
+                title="Choose"
+                containerStyle={styles.PhotoButton}
+              ></Button>
             </View>
           </View>
           <View style={styles.footer}>
-            <TouchableOpacity
+            <ButtonView
+              title={"Submit"}
+              onPress={() => navigation.navigate(LANDLORD_LISTINGS)}
+            />
+            {/* <TouchableOpacity
               style={styles.Button}
-              onPress={() => console.log("Signed Up")}
+              onPress={() => navigation.navigate(LANDLORD_LISTINGS)}
             >
               <Text style={styles.buttonText}>Submit</Text>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
           </View>
         </View>
       </View>
@@ -84,7 +98,6 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: "white",
-    fontSize: 20,
   },
   texts: {
     fontSize: 18,
@@ -99,16 +112,9 @@ const styles = StyleSheet.create({
     margin: 20,
     fontSize: 15,
   },
-  Button: {
-    backgroundColor: "rgb(187, 122, 68)",
-    width: screenWidth - 30,
-    borderRadius: 30,
-    alignItems: "center",
-    margin: 10,
-    padding: 12,
-  },
+
   PhotoButton: {
-    backgroundColor: "rgb(187, 122, 68)",
+    // backgroundColor: "rgb(187, 122, 68)",
     width: 100,
     borderRadius: 30,
     alignItems: "center",
@@ -117,6 +123,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
+    marginBottom: 150,
   },
   photoView: {
     fontSize: 20,
