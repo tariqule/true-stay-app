@@ -65,7 +65,7 @@ function Search(){
   
     const renderList = results.map(record=>{
       return(
-        <View style={styles.resultItem}>
+        <View style={styles.resultItem} key={record.title} >
           <Text style={styles.resultTitle}>
             {record.title}
           </Text>
