@@ -41,8 +41,9 @@ function Navigator() {
           headerShown: false,
         })}
       >
-        <Stack.Screen name={SEARCH_SCREEN} component={Search} />
         <Stack.Screen name={ONBOARDING_SCREEN} component={OnboardingScreen} />
+
+        <Stack.Screen name={SEARCH_SCREEN} component={Search} />
         {/* <Stack.Screen name={LOGIN_SCREEN} component={LoginScreen} /> */}
         {/* <Stack.Screen name={SIGNUP_SCREEN} component={SignupScreen} /> */}
         <Stack.Screen

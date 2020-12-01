@@ -30,107 +30,166 @@ const images = [
 
 function DetailsPageScreen({ navigation }) {
   return (
-    <View
-      style={{
-        height: screenHeight,
-        width: screenWidth,
-      }}
-    >
+    <ScrollView>
       <View
         style={{
-          marginTop: 0,
-          height: 150,
-          backgroundColor: themeColorBase,
+          // height: screenHeight,
+          width: screenWidth,
         }}
       >
-        <Text
+        <View
           style={{
-            fontSize: 50,
-            fontWeight: "bold",
-            marginTop: 80,
-            alignself: "center",
-            paddingLeft: 10,
-            color: "white",
+            marginTop: 0,
+            height: 150,
+            backgroundColor: themeColorBase,
           }}
         >
-          Details
-        </Text>
-      </View>
-
-      <View
-        style={{
-          marginTop: 10,
-          paddingLeft: 10,
-        }}
-      >
-        <Text
-          style={{
-            fontSize: 18,
-            color: "grey",
-          }}
-        >
-          Photos
-        </Text>
-      </View>
-
-      <View
-        style={{
-          marginTop: 10,
-          // paddingLeft: 30,
-          alignItems: "center",
-        }}
-      >
-        <Image
-          style={{ screenWidth, height: screenHeight * 0.3, borderRadius: 10 }}
-          source={require("../../../assets/images/houses.jpeg")}
-        />
-      </View>
-
-      <View style={{ paddingLeft: 10, paddingTop: 10 }}>
-        <View>
           <Text
             style={{
-              fontSize: 26,
-              color: "grey",
+              fontSize: 50,
+              fontWeight: "bold",
+              marginTop: 80,
+              alignself: "center",
+              paddingLeft: 10,
+              color: "white",
             }}
           >
-            Bachelor's Apartment
-          </Text>
-          <Text
-            style={{
-              fontSize: 15,
-              color: "grey",
-            }}
-          >
-            Address
-          </Text>
-          <Text
-            style={{
-              fontSize: 26,
-              color: "grey",
-            }}
-          >
-            13th Pharmacy Ave
-          </Text>
-          <Text
-            style={{
-              fontSize: 15,
-              color: "grey",
-            }}
-          >
-            Description
-          </Text>
-          <Text
-            style={{
-              fontSize: 26,
-              color: "grey",
-            }}
-          >
-            3 Bedroom, Studio, 2 Washrooms
+            Details
           </Text>
         </View>
 
-        <View style={{ alignItems: "center", paddingTop: 20, paddingRight: 8 }}>
+        <View
+          style={{
+            marginTop: 10,
+            paddingLeft: 10,
+          }}
+        >
+          <Text
+            style={{
+              fontSize: 18,
+              color: "grey",
+            }}
+          >
+            Photos
+          </Text>
+        </View>
+
+        <View
+          style={{
+            marginTop: 10,
+            // paddingLeft: 30,
+            alignItems: "center",
+          }}
+        >
+          <Image
+            style={{
+              screenWidth,
+              height: screenHeight * 0.3,
+              borderRadius: 10,
+            }}
+            source={require("../../../assets/images/houses.jpeg")}
+          />
+        </View>
+
+        <View style={{ paddingLeft: 10, paddingTop: 10 }}>
+          <View>
+            <Text
+              style={{
+                fontSize: 25,
+                color: "grey",
+                paddingBottom: 8,
+              }}
+            >
+              Bachelor's Apartment
+            </Text>
+            <Text
+              style={{
+                fontSize: 16,
+                color: "grey",
+              }}
+            >
+              Address
+            </Text>
+            <Text
+              style={{
+                fontSize: 25,
+                color: "grey",
+                paddingBottom: 8,
+              }}
+            >
+              13th Pharmacy Ave
+            </Text>
+            <Text
+              style={{
+                fontSize: 16,
+                color: "grey",
+              }}
+            >
+              Description
+            </Text>
+            <Text
+              style={{
+                fontSize: 25,
+                color: "grey",
+                paddingBottom: 8,
+              }}
+            >
+              3 Bedroom, Studio, 2 Washrooms
+            </Text>
+            <Text
+              style={{
+                fontSize: 16,
+                color: "grey",
+              }}
+            >
+              Landlord Name
+            </Text>
+            <Text
+              style={{
+                fontSize: 25,
+                color: "grey",
+                paddingBottom: 8,
+              }}
+            >
+              Tony Stark
+            </Text>
+            <Text
+              style={{
+                fontSize: 16,
+                color: "grey",
+              }}
+            >
+              Landlord Contact Number
+            </Text>
+            <Text
+              style={{
+                fontSize: 25,
+                color: "grey",
+                paddingBottom: 8,
+              }}
+            >
+              8561759381
+            </Text>
+            <Text
+              style={{
+                fontSize: 16,
+                color: "grey",
+              }}
+            >
+              Landlord Contact Email
+            </Text>
+            <Text
+              style={{
+                fontSize: 25,
+                color: "grey",
+                paddingBottom: 8,
+              }}
+            >
+              jarvis@starkindustries.ma
+            </Text>
+          </View>
+
+          {/* <View style={{ alignItems: "center", paddingTop: 20, paddingRight: 8 }}>
           <TouchableOpacity
             style={{
               borderRadius: 50,
@@ -150,9 +209,10 @@ function DetailsPageScreen({ navigation }) {
               Continue
             </Text>
           </TouchableOpacity>
+        </View> */}
         </View>
       </View>
-    </View>
+    </ScrollView>
   );
 }
 
