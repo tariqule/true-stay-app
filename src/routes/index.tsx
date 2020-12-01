@@ -8,6 +8,7 @@ import OnboardingScreen from "../pages/Onboarding";
 import { PostListingScreen } from "../pages/Listing/PostListingScreen";
 import { ModifyListingScreen } from "../pages/Listing/ModifyListingScreen";
 import Search from "../pages/Search";
+import LandlordSearch from "../pages/LandlordSearch";
 import { MenuScreen } from "../pages/Menu";
 import LoginScreen from "../pages/LoginPage";
 import PassResetScreen from "../pages/PasswordReset";
@@ -23,11 +24,11 @@ export const SIGNUP_SCREEN = "SIGNUP_SCREEN";
 export const ONBOARDING_SCREEN = "ONBOARDING_SCREEN";
 export const POSTLISTING_SCREEN = "POSTLISTING_SCREEN";
 export const SEARCH_SCREEN = "SEARCH_SCREEN";
+export const LANDLORD_SEARCH_SCREEN = "LANDLORD_SEARCH_SCREEN";
 export const LOGINPAGE_SCREEN = "LOGINPAGE_SCREEN";
 export const MENU_SCREEN = "MENU_SCREEN";
 export const MODIFYLISTING_SCREEN = "MODIFYLISTING_SCREEN";
 export const PASSRESET_SCREEN = "PASSRESET_SCREEN";
-
 export const ACTIVITYFEED_SCREEN = "ACTIVITYFEED_SCREEN";
 export const DETAILSPAGE_SCREEN = "DETAILSPAGE_SCREEN;";
 
@@ -58,6 +59,7 @@ function Navigator() {
         />
         {/* <Stack.Screen name={SIGNUP_SCREEN} component={SignUpScreen} /> */}
         <Stack.Screen name={SEARCH_SCREEN} component={Search} />
+        <Stack.Screen name={LANDLORD_SEARCH_SCREEN} component={LandlordSearch} />
         <Stack.Screen name={MENU_SCREEN} component={MenuScreen} />
         <Stack.Screen name={LOGINPAGE_SCREEN} component={LoginScreen} />
         <Stack.Screen name={PASSRESET_SCREEN} component={PassResetScreen} />
