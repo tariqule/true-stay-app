@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import { Text, View, TextInput, SafeAreaView } from "react-native";
+import ButtonView from "../../components/Button";
 import { SEARCH_SCREEN } from "../../routes";
-import { Button } from "react-native-elements";
+// import { Button } from "react-native-elements";
 
-function LoginScreen() {
-  const [outputText, setOutputText] = useState(
-    "Open up App.js to start working on your app!"
-  );
+function LoginScreen({ route }) {
+  const { data } = route.params;
   //hooks
   return (
     <View
@@ -56,6 +55,8 @@ function LoginScreen() {
           Welcome to
           {"\n"}
           TrueStay
+          {"\n"}
+          {data?.tenant ? "Tenants" : "Landlord"}
         </Text>
       </View>
       <View style={{ width: 500, height: 30, backgroundColor: "#ecf0f1" }} />
@@ -65,33 +66,32 @@ function LoginScreen() {
         // onChangeText={(username) => this.setState({ username })}
         placeholder={"Username"}
         style={{
-          width: 250,
+          width: "90%",
+          // width: 250,
           height: 44,
           padding: 10,
           borderWidth: 2,
           borderColor: "#B97A45",
           marginBottom: 10,
-          borderRadius: 35,
+          borderRadius: 20,
         }}
       />
       <TextInput
         placeholder={"Password"}
         secureTextEntry={true}
         style={{
-          width: 250,
+          width: "90%",
+          // width: 250,
           height: 44,
           padding: 10,
           borderWidth: 2,
           borderColor: "#B97A45",
           marginBottom: 10,
-          borderRadius: 35,
+          borderRadius: 20,
         }}
       />
+      <ButtonView title="login" />
 
-      <Button
-        title="Log in"
-        //onPress={_onPressSubmit}
-      />
       <View style={{ width: 500, height: 30, backgroundColor: "#ecf0f1" }} />
     </View>
   );

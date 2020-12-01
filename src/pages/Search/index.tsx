@@ -8,6 +8,8 @@ import {
   themeColorPeach,
   themeColorPuff,
 } from "../../styles/global-styles";
+import Navbar from "../../components/Header";
+import { Container, Content } from "native-base";
 
 const data: any[] = [
   {
@@ -48,7 +50,7 @@ const data: any[] = [
   },
 ];
 
-function Search() {
+function Search({ navigation }) {
   const [searchTerm, setSearchTerm] = useState("");
   const [results, setResults] = useState([]);
   const [filterValue, setFilterValue] = useState("price");
@@ -91,22 +93,27 @@ function Search() {
     );
   });
   return (
-    <ScrollView>
-      <View style={styles.container}>
-        <View>
+    <Container>
+      <Navbar
+        headerTitle="Search Listings"
+        showBack
+        onPress={() => navigation.goBack()}
+      />
+      {/* <View>
           <Text style={styles.header}> SEARCH</Text>
-        </View>
-        <View style={styles.searchBar}>
-          <SearchBar
-            placeholder="Search..."
-            onChangeText={(text) => {
-              updateSearch(text);
-            }}
-            value={searchTerm}
-            lightTheme={true}
-          />
-        </View>
+        </View> */}
 
+      <View style={styles.searchBar}>
+        <SearchBar
+          placeholder="Search..."
+          onChangeText={(text) => {
+            updateSearch(text);
+          }}
+          value={searchTerm}
+          lightTheme={true}
+        />
+      </View>
+      <Content>
         <View style={styles.picker}>
           <Picker
             selectedValue={filterValue}
@@ -120,8 +127,8 @@ function Search() {
         </View>
         <View style={styles.listResult}>{renderList}</View>
         <StatusBar style="auto" />
-      </View>
-    </ScrollView>
+      </Content>
+    </Container>
   );
 }
 
