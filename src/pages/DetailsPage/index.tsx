@@ -7,13 +7,13 @@ import {
   TouchableOpacity,
   Dimensions,
   ScrollView,
-  Linking
+  Linking,
 } from "react-native";
 import { house1, house2, houses, houses1 } from "../../utils/global";
 import {
   themeColorBase,
   themeColorIsabelline,
-  GlobalStyles
+  GlobalStyles,
 } from "../../styles/global-styles";
 
 import { Ionicons } from "@expo/vector-icons";
@@ -32,54 +32,62 @@ const images = [
 
 function DetailsPageScreen({ navigation }) {
   return (
-    <View
-      style={GlobalStyles.container}
-    >
+    <View style={GlobalStyles.container}>
       {/** Header View - flex 1*/}
       <View style={GlobalStyles.header}>
-        <Text style = {GlobalStyles.Title}> Details </Text>
+        <Text style={GlobalStyles.Title}> Details </Text>
       </View>
       {/** End Header */}
-      
+
       {/** Photo View - flex 4 */}
       <View style={GlobalStyles.MainPhoto}>
-      <View style={GlobalStyles.PhotoImage}>
-        {/** Tariq please link the Address of the unit as main title here */}
+        <View style={GlobalStyles.PhotoImage}>
+          {/** Tariq please link the Address of the unit as main title here */}
           <Text style={GlobalStyles.H1}> Link Unit Listing Details Here </Text>
-          <Image source={require("../../../assets/images/houses.jpeg")}/>
+          <Image source={require("../../../assets/images/houses.jpeg")} />
         </View>
       </View>
       {/** End Photo View */}
-      
+
       {/** Text Data View */}
       <View style={GlobalStyles.TextBody}>
-      <ScrollView>
-          <View style={{flex:2}}>
-          <Text style={GlobalStyles.H1}> Unit Info </Text>
-          <Text style={GlobalStyles.H2}> Type </Text>
-          <Text style={GlobalStyles.DataFont}> Bind Unit Type Here </Text>
-          <Text style={GlobalStyles.H2}> Location </Text>
-          <Text style={GlobalStyles.DataFont}> Bind Location Here </Text>
-          <Text style={GlobalStyles.H2}> Description </Text>
-          <Text style={GlobalStyles.DataFont}> Bind Unit Description Here </Text>
+        <ScrollView>
+          <View style={{ flex: 2 }}>
+            <Text style={GlobalStyles.H1}> Unit Info </Text>
+            <Text style={GlobalStyles.H2}> Type </Text>
+            <Text style={GlobalStyles.DataFont}> Bind Unit Type Here </Text>
+            <Text style={GlobalStyles.H2}> Location </Text>
+            <Text style={GlobalStyles.DataFont}> Bind Location Here </Text>
+            <Text style={GlobalStyles.H2}> Description </Text>
+            <Text style={GlobalStyles.DataFont}>
+              {" "}
+              Bind Unit Description Here{" "}
+            </Text>
           </View>
-          <View style={{flex:1}}>
-          <Text style={GlobalStyles.H1}> Landlord Info </Text>
-          <Text style={GlobalStyles.H2}> Name </Text>
-          <Text style={GlobalStyles.DataFont}> Bind Landlord Name Here </Text>
-          <Text style={GlobalStyles.H2}> Phone Number </Text>
-          <Text style={GlobalStyles.DataFont}> Bind Landlord Phone </Text>
-          <Text style={GlobalStyles.H2}> E-Mail </Text>
-          <Text style={GlobalStyles.DataFont}> Bind Landlord Email </Text>
-          <TouchableOpacity
+          <View style={{ flex: 1 }}>
+            <Text style={GlobalStyles.H1}> Landlord Info </Text>
+            <Text style={GlobalStyles.H2}> Name </Text>
+            <Text style={GlobalStyles.DataFont}> Bind Landlord Name Here </Text>
+            <Text style={GlobalStyles.H2}> Phone Number </Text>
+            <Text style={GlobalStyles.DataFont}> Bind Landlord Phone </Text>
+            <Text style={GlobalStyles.H2}> E-Mail </Text>
+            <Text style={GlobalStyles.DataFont}> Bind Landlord Email </Text>
+            <TouchableOpacity
               style={GlobalStyles.HorizontalButton}
-              onPress={() => Linking.openURL('tel:${1234567890}')}>
+              onPress={() => Linking.openURL("tel:${1234567890}")}
+            >
               <Text style={GlobalStyles.buttonText}>Call Contact</Text>
             </TouchableOpacity>
+            <TouchableOpacity
+              style={GlobalStyles.HorizontalButton}
+              onPress={() => Linking.openURL("sms:${1234567890}")}
+            >
+              <Text style={GlobalStyles.buttonText}>Message Contact</Text>
+            </TouchableOpacity>
           </View>
-      </ScrollView>
-      {/** End Text Data View */}
-    </View>
+        </ScrollView>
+        {/** End Text Data View */}
+      </View>
     </View>
   );
 }
