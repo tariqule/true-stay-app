@@ -104,6 +104,8 @@ export const GlobalStyles = StyleSheet.create({
       fontSize: 30,
       fontWeight: "bold",
       alignSelf:"center",
+      textAlign:"center",
+      marginVertical:screenY/10,
       color: themeColorBase
     },
     H2: {
