@@ -41,6 +41,7 @@ function Navigator() {
           headerShown: false,
         })}
       >
+        <Stack.Screen name={SEARCH_SCREEN} component={Search} />
         <Stack.Screen name={ONBOARDING_SCREEN} component={OnboardingScreen} />
         {/* <Stack.Screen name={LOGIN_SCREEN} component={LoginScreen} /> */}
         {/* <Stack.Screen name={SIGNUP_SCREEN} component={SignupScreen} /> */}
@@ -57,7 +58,7 @@ function Navigator() {
           component={ModifyListingScreen}
         />
         {/* <Stack.Screen name={SIGNUP_SCREEN} component={SignUpScreen} /> */}
-        <Stack.Screen name={SEARCH_SCREEN} component={Search} />
+
         <Stack.Screen name={MENU_SCREEN} component={MenuScreen} />
         <Stack.Screen name={LOGINPAGE_SCREEN} component={LoginScreen} />
         <Stack.Screen name={PASSRESET_SCREEN} component={PassResetScreen} />
