@@ -7,11 +7,13 @@ import {
   TouchableOpacity,
   Dimensions,
   ScrollView,
+  Linking
 } from "react-native";
 import { house1, house2, houses, houses1 } from "../../utils/global";
 import {
   themeColorBase,
   themeColorIsabelline,
+  GlobalStyles
 } from "../../styles/global-styles";
 
 import { Ionicons } from "@expo/vector-icons";
@@ -31,127 +33,53 @@ const images = [
 function DetailsPageScreen({ navigation }) {
   return (
     <View
-      style={{
-        height: screenHeight,
-        width: screenWidth,
-      }}
+      style={GlobalStyles.container}
     >
-      <View
-        style={{
-          marginTop: 0,
-          height: 150,
-          backgroundColor: themeColorBase,
-        }}
-      >
-        <Text
-          style={{
-            fontSize: 50,
-            fontWeight: "bold",
-            marginTop: 80,
-            alignself: "center",
-            paddingLeft: 10,
-            color: "white",
-          }}
-        >
-          Details
-        </Text>
+      {/** Header View - flex 1*/}
+      <View style={GlobalStyles.header}>
+        <Text style = {GlobalStyles.Title}> Details </Text>
       </View>
-
-      <View
-        style={{
-          marginTop: 10,
-          paddingLeft: 10,
-        }}
-      >
-        <Text
-          style={{
-            fontSize: 18,
-            color: "grey",
-          }}
-        >
-          Photos
-        </Text>
-      </View>
-
-      <View
-        style={{
-          marginTop: 10,
-          // paddingLeft: 30,
-          alignItems: "center",
-        }}
-      >
-        <Image
-          style={{ screenWidth, height: screenHeight * 0.3, borderRadius: 10 }}
-          source={require("../../../assets/images/houses.jpeg")}
-        />
-      </View>
-
-      <View style={{ paddingLeft: 10, paddingTop: 10 }}>
-        <View>
-          <Text
-            style={{
-              fontSize: 26,
-              color: "grey",
-            }}
-          >
-            Bachelor's Apartment
-          </Text>
-          <Text
-            style={{
-              fontSize: 15,
-              color: "grey",
-            }}
-          >
-            Address
-          </Text>
-          <Text
-            style={{
-              fontSize: 26,
-              color: "grey",
-            }}
-          >
-            13th Pharmacy Ave
-          </Text>
-          <Text
-            style={{
-              fontSize: 15,
-              color: "grey",
-            }}
-          >
-            Description
-          </Text>
-          <Text
-            style={{
-              fontSize: 26,
-              color: "grey",
-            }}
-          >
-            3 Bedroom, Studio, 2 Washrooms
-          </Text>
+      {/** End Header */}
+      
+      {/** Photo View - flex 4 */}
+      <View style={GlobalStyles.MainPhoto}>
+      <View style={GlobalStyles.PhotoImage}>
+        {/** Tariq please link the Address of the unit as main title here */}
+          <Text style={GlobalStyles.H1}> Link Unit Listing Details Here </Text>
+          <Image source={require("../../../assets/images/houses.jpeg")}/>
         </View>
-
-        <View style={{ alignItems: "center", paddingTop: 20, paddingRight: 8 }}>
+      </View>
+      {/** End Photo View */}
+      
+      {/** Text Data View */}
+      <View style={GlobalStyles.TextBody}>
+      <ScrollView>
+          <View style={{flex:2}}>
+          <Text style={GlobalStyles.H1}> Unit Info </Text>
+          <Text style={GlobalStyles.H2}> Type </Text>
+          <Text style={GlobalStyles.DataFont}> Bind Unit Type Here </Text>
+          <Text style={GlobalStyles.H2}> Location </Text>
+          <Text style={GlobalStyles.DataFont}> Bind Location Here </Text>
+          <Text style={GlobalStyles.H2}> Description </Text>
+          <Text style={GlobalStyles.DataFont}> Bind Unit Description Here </Text>
+          </View>
+          <View style={{flex:1}}>
+          <Text style={GlobalStyles.H1}> Landlord Info </Text>
+          <Text style={GlobalStyles.H2}> Name </Text>
+          <Text style={GlobalStyles.DataFont}> Bind Landlord Name Here </Text>
+          <Text style={GlobalStyles.H2}> Phone Number </Text>
+          <Text style={GlobalStyles.DataFont}> Bind Landlord Phone </Text>
+          <Text style={GlobalStyles.H2}> E-Mail </Text>
+          <Text style={GlobalStyles.DataFont}> Bind Landlord Email </Text>
           <TouchableOpacity
-            style={{
-              borderRadius: 50,
-              backgroundColor: themeColorBase,
-              height: 55,
-              width: screenWidth - 30,
-            }}
-          >
-            <Text
-              style={{
-                fontSize: 25,
-                color: "white",
-                alignSelf: "center",
-                paddingTop: 5,
-              }}
-            >
-              Continue
-            </Text>
-          </TouchableOpacity>
-        </View>
-      </View>
+              style={GlobalStyles.HorizontalButton}
+              onPress={() => Linking.openURL('tel:${1234567890}')}>
+              <Text style={GlobalStyles.buttonText}>Call Contact</Text>
+            </TouchableOpacity>
+          </View>
+      </ScrollView>
+      {/** End Text Data View */}
+    </View>
     </View>
   );
 }

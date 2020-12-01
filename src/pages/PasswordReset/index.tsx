@@ -5,9 +5,7 @@ import { GlobalStyles } from "../../styles/global-styles";
 
 /** React Native Used Components */
 import { 
-  Button,
   View,
-  ScrollView,
   Text,
   Dimensions,
   TextInput,
