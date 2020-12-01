@@ -1,15 +1,7 @@
-import React, { Component } from "react";
-import { StyleSheet, Text, View } from "react-native";
-import {
-  Container,
-  Header,
-  Left,
-  Body,
-  Right,
-  Button,
-  Icon,
-  Title,
-} from "native-base";
+import { StatusBar } from "expo-status-bar";
+import { Body, Button, Header, Icon, Left, Right, Title } from "native-base";
+import React from "react";
+import { StyleSheet } from "react-native";
 import { themeColorBase } from "../../styles/global-styles";
 
 interface HeaderProps {
@@ -17,7 +9,7 @@ interface HeaderProps {
   onPress?: (event: Event) => void;
   onPressAddIcon?: (event: Event) => void;
   showAddIcon?: boolean;
-  showBack?: (event: Event) => void;
+  showBack?: boolean;
   showMenu?: boolean;
   onPressMenu?: (event: Event) => void;
   showSearchIcon?: boolean;
@@ -31,8 +23,9 @@ const Navbar = (props: HeaderProps) => {
       noShadow
       span
       hasSubtitle={true}
-      style={{ backgroundColor: themeColorBase }}
+      style={{ backgroundColor: themeColorBase, top: 20, zIndex: 10 }}
     >
+      <StatusBar barStyle="light-content" />
       <Left style={{ flex: 1 }}>
         {props.showBack && (
           <Button transparent>

@@ -43,17 +43,16 @@ function Navigator() {
           headerShown: false,
         })}
       >
-        <Stack.Screen name={DETAILSPAGE_SCREEN} component={DetailsPageScreen} />
-
-        <Stack.Screen name={ONBOARDING_SCREEN} component={OnboardingScreen} />
-        {/* <Stack.Screen name={LOGIN_SCREEN} component={LoginScreen} /> */}
-        {/* <Stack.Screen name={SIGNUP_SCREEN} component={SignupScreen} /> */}
         <Stack.Screen
           name={ACTIVITYFEED_SCREEN}
           component={ActivityFeedScreen}
         />
+        <Stack.Screen name={ONBOARDING_SCREEN} component={OnboardingScreen} />
+        {/* <Stack.Screen name={LOGIN_SCREEN} component={LoginScreen} /> */}
+        {/* <Stack.Screen name={SIGNUP_SCREEN} component={SignupScreen} /> */}
+
         <Stack.Screen name={SEARCH_SCREEN} component={Search} />
-        {/* <Stack.Screen name={DETAILSPAGE_SCREEN} component={DetailsPageScreen} /> */}
+        <Stack.Screen name={DETAILSPAGE_SCREEN} component={DetailsPageScreen} />
         <Stack.Screen name={LOGIN_SCREEN} component={InitialScreen} />
         <Stack.Screen name={SIGNUP_SCREEN} component={SignUpScreen} />
         <Stack.Screen name={POSTLISTING_SCREEN} component={PostListingScreen} />

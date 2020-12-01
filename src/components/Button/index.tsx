@@ -12,7 +12,7 @@ const screenHeight = Dimensions.get("screen").height;
 
 interface ButtonViewProps {
   title: string;
-  onPress: (event: Event) => void;
+  onPress?: (event: Event) => void;
 }
 export const ButtonView = (props: ButtonViewProps) => (
   <View>
