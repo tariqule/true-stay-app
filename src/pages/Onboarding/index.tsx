@@ -7,7 +7,9 @@ import {
 import { trueStayLogo } from "../../utils/global";
 import * as Font from "expo-font";
 
-const OnboardingScreen = () => {
+// import { ACTIVITYFEED_SCREEN } from "../../routes";
+
+const OnboardingScreen = ({ navigation }) => {
   const [loaded] = Font.useFonts({
     Montserrat: require("../../../assets/fonts/Montserrat-Regular.ttf"),
   });
@@ -38,6 +40,7 @@ const OnboardingScreen = () => {
           alignItems: "center",
           backgroundColor: themeColorBase,
         }}
+        onPress={() => navigation.navigate("ACTIVITYFEED_SCREEN")}
       >
         <Text
           style={{
