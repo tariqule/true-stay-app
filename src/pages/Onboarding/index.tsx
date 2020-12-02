@@ -6,6 +6,7 @@ import {
 } from "../../styles/global-styles";
 import { trueStayLogo } from "../../utils/global";
 import * as Font from "expo-font";
+import { SIGNUP_SCREEN } from "../../routes";
 
 // import { ACTIVITYFEED_SCREEN } from "../../routes";
 
@@ -36,21 +37,28 @@ const OnboardingScreen = ({ navigation }) => {
           //   paddingTop: 50,
           height: 50,
           width: "60%",
+          borderRadius: 15,
           justifyContent: "center",
           alignItems: "center",
           backgroundColor: themeColorBase,
+          shadowColor: "#0000",
+          // shadowOffset: { width: 0, height: 1 },
+          shadowOpacity: 0.1,
+          elevation: 1,
         }}
         onPress={() => navigation.navigate("ACTIVITYFEED_SCREEN")}
       >
-        <Text
-          style={{
-            color: "white",
-            fontSize: 20,
-            fontFamily: "Montserrat",
-          }}
-        >
-          Tenant
-        </Text>
+        <View>
+          <Text
+            style={{
+              color: "white",
+              fontSize: 20,
+              fontFamily: "Montserrat",
+            }}
+          >
+            Tenant
+          </Text>
+        </View>
       </TouchableOpacity>
 
       <TouchableOpacity
@@ -58,11 +66,18 @@ const OnboardingScreen = ({ navigation }) => {
           height: 50,
           marginTop: 20,
           width: "60%",
+          borderRadius: 15,
           borderColor: themeColorBase,
           borderWidth: 3,
           justifyContent: "center",
           alignItems: "center",
+          shadowColor: "#0000",
+          // shadowOffset: { width: 0, height: 1 },
+          shadowOpacity: 0.1,
+
+          // elevation: 1,
         }}
+        onPress={() => navigation.navigate(SIGNUP_SCREEN)}
       >
         <Text
           style={{

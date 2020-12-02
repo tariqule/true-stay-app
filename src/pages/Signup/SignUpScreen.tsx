@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import Icon from "react-native-vector-icons/FontAwesome";
+import { POSTLISTING_SCREEN } from "../../routes";
 
 const screenWidth = Dimensions.get("screen").width;
 var screenHeight = Dimensions.get("screen").height;
@@ -18,7 +19,7 @@ if (Dimensions.get("screen").height < 800) {
   screenHeight = Dimensions.get("screen").height + 100;
 }
 
-export const SignUpScreen = () => {
+export default ({ navigation }) => {
   return (
     <ScrollView style={styles.container}>
       <View style={{ height: screenHeight }}>
@@ -34,13 +35,13 @@ export const SignUpScreen = () => {
           <View style={styles.footer}>
             <TouchableOpacity
               style={styles.signUpButton}
-              onPress={() => console.log("Signed Up")}
+              onPress={() => navigation.navigate(POSTLISTING_SCREEN)}
             >
-              <Text style={styles.buttonText}>Sign Up</Text>
+              <Text style={styles.buttonText}>Complete Registration</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={styles.fbButton}
-              onPress={() => console.log("FB button ")}
+              onPress={() => alert("Feature not available")}
             >
               <Icon
                 style={styles.icon}
@@ -48,7 +49,7 @@ export const SignUpScreen = () => {
                 size={20}
                 color="rgb(36, 160, 255)"
               />
-              <Text style={styles.fbButtonText}>Sign Up with FaceBook</Text>
+              <Text style={styles.fbButtonText}>Continue with Facebook</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -89,6 +90,8 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
+
+    marginBottom: 150,
   },
   input: {
     width: screenWidth - 30,

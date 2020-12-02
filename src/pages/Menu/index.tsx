@@ -1,125 +1,120 @@
-import * as React from 'react';
-import { Button, View, StyleSheet, Text } from 'react-native';
-import { createDrawerNavigator } from '@react-navigation/drawer';
-import { NavigationContainer } from '@react-navigation/native';
-import LoginScreen from '../Login';
-import { BottomSheet } from 'react-native-elements';
-import { themeColorBase, themeColorPeach } from '../../styles/global-styles';
-import { color } from 'react-native-reanimated';
-import { Avatar } from 'react-native-elements';
+import * as React from "react";
+import { Button, View, StyleSheet, Text, TouchableOpacity } from "react-native";
+import { createDrawerNavigator } from "@react-navigation/drawer";
+import { NavigationContainer } from "@react-navigation/native";
+import LoginScreen from "../Login";
+import { BottomSheet } from "react-native-elements";
+import { themeColorBase, themeColorPeach } from "../../styles/global-styles";
+import { color } from "react-native-reanimated";
+import { Avatar } from "react-native-elements";
+import { ContentTitle } from "../ActivityFeed/ContentTitle";
+import {
+  ACTIVITYFEED_SCREEN,
+  LOGINPAGE_SCREEN,
+  ONBOARDING_SCREEN,
+  SEARCH_SCREEN,
+} from "../../routes";
 
-export const MenuScreen = (props: any) => {
-    return (
-      <View style={styles.view}>
-    {/* user account info */}
-    <View style={styles.textBox}>
-        <Avatar
-          rounded
-          icon={{ name: 'user', type: 'font-awesome' }}
-          //example of style
-          // source={{ uri: 'https://', }}
-          // icon={{name: 'user', type: 'font-awesome'}}
-          // onPress={() => console.log("Hi")}
-          // activeOpacity={0.7}
-          // containerStyle={{flex: 2, marginLeft: 20, marginTop: 115}}
-        />
-      <Text style={styles.textName}>Name Surname</Text>
+export const MenuScreen = ({ navigation }) => {
+  const menuData = [
+    {
+      title: "Feed",
+      onPress: () => navigation.navigate(ACTIVITYFEED_SCREEN),
+    },
+    {
+      title: "Explore",
+      onPress: () => navigation.navigate(ACTIVITYFEED_SCREEN),
+    },
+    {
+      title: "Notifications",
+      onPress: () => navigation.navigate(ACTIVITYFEED_SCREEN),
+    },
+    {
+      title: "Places",
+      onPress: () => navigation.navigate(ACTIVITYFEED_SCREEN),
+    },
+    {
+      title: "Search",
+      onPress: () => navigation.navigate(SEARCH_SCREEN),
+    },
+  ];
+  return (
+    <View style={styles.view}>
+      {/* user account info */}
+      <View style={styles.textBox}>
+        <Avatar rounded icon={{ name: "user", type: "font-awesome" }} />
+        <TouchableOpacity
+          onPress={() =>
+            navigation.navigate(LOGINPAGE_SCREEN, { data: { tenant: true } })
+          }
+        >
+          <Text style={styles.textName}>Sign in</Text>
+        </TouchableOpacity>
       </View>
       <View>
-      <Text style={styles.textAddress}>City, Province</Text>
+        <Text style={styles.textAddress}>Current Location: Toronto, ON</Text>
+      </View>
+      {/* menu options */}
+      <View style={styles.button}>
+        {menuData.map((item, _index) => (
+          <TouchableOpacity onPress={item.onPress}>
+            {ContentTitle(item.title)}
+          </TouchableOpacity>
+        ))}
+      </View>
+
+      {/* logout */}
+      <View style={styles.buttonLogout}>
+        <Button
+          onPress={() => navigation.navigate(ONBOARDING_SCREEN)}
+          title="LOG OUT"
+          color="#774936"
+        />
+      </View>
     </View>
+  );
+};
 
-    {/* menu options */}      
-        <View style={styles.button}>
-        <Button
-          onPress={() => props.navigation.navigate('Feed')}
-          title="FEED"
-          color = {themeColorBase}
-        />
-        <Button
-          onPress={() => props.navigation.navigate('Explore')}
-          title="EXPLORE"
-          color = {themeColorBase}
-          />
-        <Button
-          onPress={() => props.navigation.navigate('Messages')}
-          title="MESSAGES"
-          color = {themeColorBase}
-        />
-        <Button
-          onPress={() => props.navigation.navigate('Notifications')}
-          title="NOTIFICATIONS"
-          color = {themeColorBase}
-          />
-        <Button
-          onPress={() => props.navigation.navigate('Places')}
-          title="PLACES"
-          color = {themeColorBase}
-          />
-        <Button
-          onPress={() => props.navigation.navigate('Settings')}
-          title="SETTINGS"
-          color = {themeColorBase}
-          />
-        <Button
-          onPress={() => props.navigation.navigate('Search')}
-          title="SEARCH"
-          color = {themeColorBase}
-          />
-        </View>
-
-        {/* logout */}
-        <View style={styles.buttonLogout}>          
-          <Button            
-            onPress={() => props.navigation.navigate('Login')}
-            title="LOG OUT"
-            color = "#774936"
-        /> 
-        </View>    
-      </View>        
-    );
-  }
-
-  const styles = StyleSheet.create({
-    view: {
-      flex: 1,
-      backgroundColor: themeColorBase,
-      fontStyle: "normal",
-      alignItems: "stretch",      
-    },
-    textBox: {
-      paddingTop: 40,
-      paddingLeft: 10,
-      color: themeColorPeach,
-      backgroundColor: "#C99469",
-      flexDirection: "row",
-      alignItems: "center"     
-    },
-    textName: {
-      color: "white",
-      padding: 10,
-      fontSize: 20,
-      fontWeight: "bold"
-    },
-    textAddress: {
-      color: "white",
-      padding: 10,
-      backgroundColor: "#C99469",
-      paddingLeft: 50
-    },
-    button: {
-      backgroundColor: themeColorBase,
-      fontStyle: "normal",
-      alignItems: "flex-start",
-      paddingLeft: 50
-    },
-    buttonLogout: {
-      marginTop: "45%",
-      backgroundColor: themeColorBase,
-      fontStyle: "normal",
-      width: "100%",
-      alignItems: "flex-end",
-      paddingEnd: 10,
-      paddingBottom: 10
-    }   
-  });
+const styles = StyleSheet.create({
+  view: {
+    flex: 1,
+    backgroundColor: themeColorBase,
+    fontStyle: "normal",
+    alignItems: "stretch",
+  },
+  textBox: {
+    paddingTop: 40,
+    paddingLeft: 10,
+    color: themeColorPeach,
+    backgroundColor: "#C99469",
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  textName: {
+    color: "white",
+    padding: 10,
+    fontSize: 20,
+    fontWeight: "bold",
+  },
+  textAddress: {
+    color: "white",
+    padding: 10,
+    backgroundColor: "#C99469",
+    paddingLeft: 50,
+  },
+  button: {
+    backgroundColor: themeColorBase,
+    fontStyle: "normal",
+    alignItems: "flex-start",
+    paddingLeft: 50,
+  },
+  buttonLogout: {
+    marginTop: "45%",
+    backgroundColor: themeColorBase,
+    fontStyle: "normal",
+    width: "100%",
+    alignItems: "flex-end",
+    paddingEnd: 10,
+    paddingBottom: 10,
+  },
+});
