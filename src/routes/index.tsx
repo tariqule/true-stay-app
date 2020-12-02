@@ -20,9 +20,27 @@ import LandlordListingsScreen from "../pages/LandlordListings";
 const Stack = createStackNavigator();
 
 //all the screen should be here
+
+export const SCREEN_ROUTES = {
+  ONBOARDING_SCREEN : "ONBOARDING_SCREEN",
+  LOGIN_SCREEN : "LOGIN_SCREEN",
+  SIGNUP_SCREEN : "SIGNUP_SCREEN",
+  POSTLISTING_SCREEN : "POSTLISTING_SCREEN",
+  SEARCH_SCREEN : "SEARCH_SCREEN",
+  LOGINPAGE_SCREEN : "LOGINPAGE_SCREEN",
+  MENU_SCREEN : "MENU_SCREEN",
+  MODIFYLISTING_SCREEN : "MODIFYLISTING_SCREEN",
+  PASSRESET_SCREEN : "PASSRESET_SCREEN",
+  ACTIVITYFEED_SCREEN : "ACTIVITYFEED_SCREEN",
+  DETAILSPAGE_SCREEN : "DETAILSPAGE_SCREEN;",
+  LANDLORD_LISTINGS : "LANDLORD_LISTINGS;"
+}
+
+export const ONBOARDING_SCREEN = "ONBOARDING_SCREEN";
+
 export const LOGIN_SCREEN = "LOGIN_SCREEN";
 export const SIGNUP_SCREEN = "SIGNUP_SCREEN";
-export const ONBOARDING_SCREEN = "ONBOARDING_SCREEN";
+
 export const POSTLISTING_SCREEN = "POSTLISTING_SCREEN";
 export const SEARCH_SCREEN = "SEARCH_SCREEN";
 export const LANDLORD_SEARCH_SCREEN = "LANDLORD_SEARCH_SCREEN";
@@ -47,14 +65,15 @@ function Navigator() {
         <Stack.Screen name={ONBOARDING_SCREEN} component={OnboardingScreen} />
         {/* <Stack.Screen name={LOGIN_SCREEN} component={LoginScreen} /> */}
         {/* <Stack.Screen name={SIGNUP_SCREEN} component={SignupScreen} /> */}
+
         <Stack.Screen
           name={ACTIVITYFEED_SCREEN}
           component={ActivityFeedScreen}
         />
+
         {/* <Stack.Screen name={ONBOARDING_SCREEN} component={OnboardingScreen} /> */}
         {/* <Stack.Screen name={LOGIN_SCREEN} component={LoginScreen} /> */}
         {/* <Stack.Screen name={SIGNUP_SCREEN} component={SignupScreen} /> */}
-
         <Stack.Screen name={SEARCH_SCREEN} component={Search} />
         <Stack.Screen name={DETAILSPAGE_SCREEN} component={DetailsPageScreen} />
         <Stack.Screen name={LOGIN_SCREEN} component={InitialScreen} />
@@ -65,11 +84,13 @@ function Navigator() {
           component={ModifyListingScreen}
         />
         {/* <Stack.Screen name={SIGNUP_SCREEN} component={SignUpScreen} /> */}
+
         <Stack.Screen name={SEARCH_SCREEN} component={Search} />
         <Stack.Screen
           name={LANDLORD_SEARCH_SCREEN}
           component={LandlordSearch}
         />
+
         <Stack.Screen name={MENU_SCREEN} component={MenuScreen} />
         <Stack.Screen name={LOGINPAGE_SCREEN} component={LoginScreen} />
         <Stack.Screen name={PASSRESET_SCREEN} component={PassResetScreen} />

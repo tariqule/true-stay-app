@@ -1,3 +1,4 @@
+
 import { StyleSheet, Dimensions } from "react-native";
 export const themeColorBase = "#BB7A44";
 export const themeColorPeach = "#FEC89A";
@@ -5,12 +6,25 @@ export const themeColorPuff = "#F9DCC4";
 export const themeColorIsabelline = "#F8EDEB";
 export const themeColorPink = "#FCD5CE";
 export const themeColorMelon = "#FFB5A7";
-export const fontColorGrey = "grey";
 
-const screenWidth = Dimensions.get("screen").width;
-var screenHeight = Dimensions.get("screen").height;
+// Basic Font
+export const fontColorGrey = "#616161";
+export const fontColorWhite = "#FFFFFF"
+export const fontColorBlack = "#000000"
+
+export const screenWidth = Dimensions.get("screen").width;
+export const screenHeight = Dimensions.get("screen").height;
 
 export const GlobalStyles = StyleSheet.create({
+  MainContainer:{
+    flex:1,
+    justifyContent:"center",
+    alignItems:"center",
+    width: "100%",
+    height: "100%",
+    marginTop: screenHeight*0.035,
+    backgroundColor: themeColorPeach
+  },
   container: {
     flex: 1,
     backgroundColor: "white",
@@ -39,6 +53,19 @@ export const GlobalStyles = StyleSheet.create({
   buttonText: {
     color: "white",
     fontSize: 20,
+    fontFamily: "Montserrat"
+  },
+  MainButtonTextType1: {
+    color: themeColorPuff,
+    fontSize: 20,
+    fontWeight:"bold",
+    fontFamily: "Montserrat"
+  }, 
+  MainButtonTextType2: {
+    color: themeColorBase,
+    fontSize: 20,
+    fontWeight:"bold",
+    fontFamily: "Montserrat"
   },
   texts: {
     fontSize: 18,
@@ -52,6 +79,38 @@ export const GlobalStyles = StyleSheet.create({
     padding: 12,
     margin: 20,
     fontSize: 15,
+  },
+  ButtonMainType1: {
+    width: screenWidth*0.5,
+    height: screenHeight*0.075,
+    margin: 5,
+    borderWidth:2,
+    borderRadius: 15,
+    borderColor: themeColorBase,
+    justifyContent: "center",
+    alignItems: "center",
+    alignSelf: "center",
+    backgroundColor: themeColorBase,
+    shadowColor: "#0000",
+    // shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.5,
+    elevation: 3
+  },
+  ButtonMainType2: {
+    width: screenWidth*0.5,
+    height: screenHeight*0.075,
+    margin: 5,
+    borderWidth:2,
+    borderRadius: 15,
+    borderColor: themeColorBase,
+    justifyContent: "center",
+    alignItems: "center",
+    alignSelf: "center",
+    backgroundColor: themeColorPuff,
+    shadowColor: "#0000",
+    // shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.5,
+    elevation: 3
   },
   Button: {
     backgroundColor: "rgb(187, 122, 68)",
@@ -129,4 +188,14 @@ export const GlobalStyles = StyleSheet.create({
     flex: 5,
     padding: screenWidth / 50,
   },
+  MainLogo:{
+    alignSelf:"center",
+    width: screenWidth*0.8,
+    borderRadius: 30,
+    borderColor: fontColorBlack,
+    shadowColor: "#0000",
+    // shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.5,
+    elevation: 3
+  }
 });
