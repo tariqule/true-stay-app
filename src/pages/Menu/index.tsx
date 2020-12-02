@@ -1,19 +1,15 @@
 import * as React from "react";
-import { Button, View, StyleSheet, Text, TouchableOpacity } from "react-native";
+import { View, StyleSheet, Text, TouchableOpacity } from "react-native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { NavigationContainer } from "@react-navigation/native";
 import LoginScreen from "../Login";
 import { BottomSheet } from "react-native-elements";
 import { themeColorBase, themeColorPeach } from "../../styles/global-styles";
 import { color } from "react-native-reanimated";
-import { Avatar } from "react-native-elements";
 import { ContentTitle } from "../ActivityFeed/ContentTitle";
-import {
-  ACTIVITYFEED_SCREEN,
-  LOGINPAGE_SCREEN,
-  ONBOARDING_SCREEN,
-  SEARCH_SCREEN,
-} from "../../routes";
+import { ACTIVITYFEED_SCREEN, SEARCH_SCREEN } from "../../routes";
+import { Footer } from "./Footer";
+import { Header } from "./Header";
 
 export const MenuScreen = ({ navigation }) => {
   const menuData = [
@@ -38,44 +34,32 @@ export const MenuScreen = ({ navigation }) => {
       onPress: () => navigation.navigate(SEARCH_SCREEN),
     },
   ];
+  const Contents = (
+    <View style={styles.button}>
+      {menuData.map((item, _index) => (
+        <TouchableOpacity onPress={item.onPress}>
+          {ContentTitle(item.title)}
+        </TouchableOpacity>
+      ))}
+    </View>
+  );
   return (
     <View style={styles.view}>
       {/* user account info */}
-      <View style={styles.textBox}>
-        <Avatar rounded icon={{ name: "user", type: "font-awesome" }} />
-        <TouchableOpacity
-          onPress={() =>
-            navigation.navigate(LOGINPAGE_SCREEN, { data: { tenant: true } })
-          }
-        >
-          <Text style={styles.textName}>Sign in</Text>
-        </TouchableOpacity>
-      </View>
+      {Header(navigation)}
       <View>
         <Text style={styles.textAddress}>Current Location: Toronto, ON</Text>
       </View>
       {/* menu options */}
-      <View style={styles.button}>
-        {menuData.map((item, _index) => (
-          <TouchableOpacity onPress={item.onPress}>
-            {ContentTitle(item.title)}
-          </TouchableOpacity>
-        ))}
-      </View>
+      {Contents}
 
       {/* logout */}
-      <View style={styles.buttonLogout}>
-        <Button
-          onPress={() => navigation.navigate(ONBOARDING_SCREEN)}
-          title="LOG OUT"
-          color="#774936"
-        />
-      </View>
+      {Footer(navigation)}
     </View>
   );
 };
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
   view: {
     flex: 1,
     backgroundColor: themeColorBase,
