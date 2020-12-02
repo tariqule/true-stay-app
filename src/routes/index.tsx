@@ -16,25 +16,26 @@ import PassResetScreen from "../pages/PasswordReset";
 import ActivityFeedScreen from "../pages/ActivityFeed";
 import DetailsPageScreen from "../pages/DetailsPage";
 import LandlordListingsScreen from "../pages/LandlordListings";
+import ProfileScreen from "../pages/UserProfile";
 
 const Stack = createStackNavigator();
 
 //all the screen should be here
 
 export const SCREEN_ROUTES = {
-  ONBOARDING_SCREEN : "ONBOARDING_SCREEN",
-  LOGIN_SCREEN : "LOGIN_SCREEN",
-  SIGNUP_SCREEN : "SIGNUP_SCREEN",
-  POSTLISTING_SCREEN : "POSTLISTING_SCREEN",
-  SEARCH_SCREEN : "SEARCH_SCREEN",
-  LOGINPAGE_SCREEN : "LOGINPAGE_SCREEN",
-  MENU_SCREEN : "MENU_SCREEN",
-  MODIFYLISTING_SCREEN : "MODIFYLISTING_SCREEN",
-  PASSRESET_SCREEN : "PASSRESET_SCREEN",
-  ACTIVITYFEED_SCREEN : "ACTIVITYFEED_SCREEN",
-  DETAILSPAGE_SCREEN : "DETAILSPAGE_SCREEN;",
-  LANDLORD_LISTINGS : "LANDLORD_LISTINGS;"
-}
+  ONBOARDING_SCREEN: "ONBOARDING_SCREEN",
+  LOGIN_SCREEN: "LOGIN_SCREEN",
+  SIGNUP_SCREEN: "SIGNUP_SCREEN",
+  POSTLISTING_SCREEN: "POSTLISTING_SCREEN",
+  SEARCH_SCREEN: "SEARCH_SCREEN",
+  LOGINPAGE_SCREEN: "LOGINPAGE_SCREEN",
+  MENU_SCREEN: "MENU_SCREEN",
+  MODIFYLISTING_SCREEN: "MODIFYLISTING_SCREEN",
+  PASSRESET_SCREEN: "PASSRESET_SCREEN",
+  ACTIVITYFEED_SCREEN: "ACTIVITYFEED_SCREEN",
+  DETAILSPAGE_SCREEN: "DETAILSPAGE_SCREEN;",
+  LANDLORD_LISTINGS: "LANDLORD_LISTINGS;",
+};
 
 export const ONBOARDING_SCREEN = "ONBOARDING_SCREEN";
 
@@ -51,6 +52,7 @@ export const PASSRESET_SCREEN = "PASSRESET_SCREEN";
 export const ACTIVITYFEED_SCREEN = "ACTIVITYFEED_SCREEN";
 export const DETAILSPAGE_SCREEN = "DETAILSPAGE_SCREEN;";
 export const LANDLORD_LISTINGS = "LANDLORD_LISTINGS;";
+export const PROFILE_SCREEN = "PROFILE_SCREEN";
 
 function Navigator() {
   return (
@@ -98,6 +100,7 @@ function Navigator() {
           name={LANDLORD_LISTINGS}
           component={LandlordListingsScreen}
         />
+        <Stack.Screen name={PROFILE_SCREEN} component={ProfileScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
