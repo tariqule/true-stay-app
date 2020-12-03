@@ -4,7 +4,11 @@ import { Text, View } from "react-native";
 import Navbar from "../../components/Header";
 import ListCard, { ListViewData } from "../../components/ListCard";
 import { MENU_SCREEN, SEARCH_SCREEN } from "../../routes";
-import { themeColorBase } from "../../styles/global-styles";
+import {
+  GlobalStyles,
+  themeColorBase,
+  themeColorPeach,
+} from "../../styles/global-styles";
 import { fakeData, fakeData2, screenHeight, screenWidth } from "./index";
 
 // interface ListViewProps {
@@ -21,57 +25,28 @@ export function ActivityFeedScreen({ navigation }) {
     setPopularData2(fakeData2);
   }, []);
   return (
-    <Container
-      style={{
-        backgroundColor: themeColorBase,
-        height: screenHeight,
-        width: screenWidth,
-        paddingLeft: 10,
-      }}
-    >
+    <Container style={{ flex: 1 }}>
       {Navigator(navigation)}
-      {PageContent(popularData, popularData2)}
+      <Container style={GlobalStyles.ContentContainer}>
+        {PageContent(popularData, popularData2)}
+      </Container>
     </Container>
   );
 }
 function PageContent(aData: ListViewData[], hData: ListViewData[]) {
   return (
     <Content>
-      <View style={{}}>
-        <Text
-          style={{
-            fontSize: 40,
-
-            color: "#fff",
-            fontWeight: "bold",
-          }}
-        >
-          {ContentTitle("Apartment")}
-        </Text>
+      <View>
+        <Text style={GlobalStyles.H1}>Apartment</Text>
+        <ListCard data={aData} />
       </View>
 
-      <ListCard data={aData} />
+      <View>
+        <Text style={GlobalStyles.H1}>House</Text>
+        <ListCard data={hData} />
+      </View>
 
-      {ContentTitle("Houses")}
-      <ListCard data={hData} />
     </Content>
-  );
-}
-
-function ContentTitle(text: string) {
-  return (
-    <View style={{}}>
-      <Text
-        style={{
-          fontSize: 40,
-
-          color: "#fff",
-          fontWeight: "bold",
-        }}
-      >
-        {text}
-      </Text>
-    </View>
   );
 }
 

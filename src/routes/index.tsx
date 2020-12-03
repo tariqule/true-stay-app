@@ -87,7 +87,6 @@ function Navigator() {
         />
         {/* <Stack.Screen name={SIGNUP_SCREEN} component={SignUpScreen} /> */}
 
-        <Stack.Screen name={SEARCH_SCREEN} component={Search} />
         <Stack.Screen
           name={LANDLORD_SEARCH_SCREEN}
           component={LandlordSearch}

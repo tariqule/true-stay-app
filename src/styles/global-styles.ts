@@ -22,8 +22,14 @@ export const GlobalStyles = StyleSheet.create({
     alignItems:"center",
     width: "100%",
     height: "100%",
-    marginTop: screenHeight*0.035,
+    // marginTop: screenHeight*0.035,
     backgroundColor: themeColorPeach
+  },
+  ContentContainer:{
+    backgroundColor: themeColorPeach,
+    height: screenHeight,
+    width: screenWidth,
+    padding: screenWidth/100
   },
   container: {
     flex: 1,
