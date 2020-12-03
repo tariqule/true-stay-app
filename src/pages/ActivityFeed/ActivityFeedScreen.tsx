@@ -1,29 +1,21 @@
-import { Container, Content } from "native-base";
+import { useNavigation } from "@react-navigation/native";
+import { Container } from "native-base";
 import * as React from "react";
-import { Text, View } from "react-native";
-import Navbar from "../../components/Header";
-import ListCard, { ListViewData } from "../../components/ListCard";
-import { MENU_SCREEN, SEARCH_SCREEN } from "../../routes";
+import { ListViewData } from "../../components/ListCard";
 import {
-  GlobalStyles,
+  screenHeight,
+  screenWidth,
   themeColorBase,
-  themeColorPeach,
 } from "../../styles/global-styles";
-import { fakeData, fakeData2, screenHeight, screenWidth } from "./index";
+import { DataLoader } from "./DataLoader";
+import { Navigator } from "./Navigator";
+import { PageContent } from "./PageContent";
 
-// interface ListViewProps {
-//   data: [] | undefined;
-// }props: ListViewProps
-export function ActivityFeedScreen({ navigation }) {
+export function ActivityFeedScreen() {
   const [popularData, setPopularData] = React.useState<ListViewData[]>([]);
   const [popularData2, setPopularData2] = React.useState<ListViewData[]>([]);
-
-  React.useEffect(() => {
-    setPopularData(fakeData);
-  }, []);
-  React.useEffect(() => {
-    setPopularData2(fakeData2);
-  }, []);
+  const navigation = useNavigation();
+  DataLoader(setPopularData, setPopularData2);
   return (
     <Container style={{ flex: 1 }}>
       {Navigator(navigation)}
@@ -31,33 +23,5 @@ export function ActivityFeedScreen({ navigation }) {
         {PageContent(popularData, popularData2)}
       </Container>
     </Container>
-  );
-}
-function PageContent(aData: ListViewData[], hData: ListViewData[]) {
-  return (
-    <Content>
-      <View>
-        <Text style={GlobalStyles.H1}>Apartment</Text>
-        <ListCard data={aData} />
-      </View>
-
-      <View>
-        <Text style={GlobalStyles.H1}>House</Text>
-        <ListCard data={hData} />
-      </View>
-
-    </Content>
-  );
-}
-
-function Navigator(navigation: any) {
-  return (
-    <Navbar
-      headerTitle={"Find your place to stay"}
-      showMenu
-      onPressMenu={() => navigation.navigate(MENU_SCREEN)}
-      onPressSearchIcon={() => navigation.navigate(SEARCH_SCREEN)}
-      showSearchIcon
-    />
   );
 }

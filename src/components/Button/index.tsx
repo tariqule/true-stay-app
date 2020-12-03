@@ -5,6 +5,7 @@ import {
   View,
   StyleSheet,
   Dimensions,
+  ActivityIndicator,
 } from "react-native";
 
 const screenWidth = Dimensions.get("screen").width;
@@ -13,13 +14,29 @@ const screenHeight = Dimensions.get("screen").height;
 interface ButtonViewProps {
   title: string;
   onPress?: (event: Event) => void;
+  disabled?: boolean;
+  color?: string;
+  loading?: boolean;
 }
 export const ButtonView = (props: ButtonViewProps) => (
-  <View>
-    <TouchableOpacity style={styles.Button} onPress={props.onPress}>
+  <TouchableOpacity
+    style={[
+      styles.Button,
+      {
+        backgroundColor: props.color || "rgb(187, 122, 68)",
+        flexDirection: "row",
+        justifyContent: "center",
+      },
+    ]}
+    onPress={props.onPress}
+    disabled={props.disabled}
+  >
+    {!props.loading ? (
       <Text style={styles.buttonText}>{props.title}</Text>
-    </TouchableOpacity>
-  </View>
+    ) : (
+      <ActivityIndicator size="large" color="#ffffff" />
+    )}
+  </TouchableOpacity>
 );
 
 export default ButtonView;

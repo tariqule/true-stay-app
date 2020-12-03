@@ -16,19 +16,20 @@ import {
 } from "native-base";
 
 interface CardViewProps {
-  title: string;
-  subtitle: string;
-  body: string;
-  image: any;
-  time: any;
-  views: any;
-  avatar: any;
-  onPress: any;
+  title?: string;
+  subtitle?: string;
+  body?: string;
+  image?: any;
+  time?: any;
+  views?: any;
+  avatar?: any;
+  onPress?: any;
+  disabled?: boolean;
 }
 
 const CardView = (props: CardViewProps) => {
   return (
-    <TouchableOpacity onPress={() => props.onPress()}>
+    <TouchableOpacity disabled={props.disabled} onPress={() => props.onPress()}>
       <View>
         <Card>
           <CardItem>
@@ -40,29 +41,32 @@ const CardView = (props: CardViewProps) => {
               </Body>
             </Left>
           </CardItem>
+
           <CardItem cardBody>
             <Image
               source={{ uri: props.image }}
               style={{ height: 200, width: null, flex: 1 }}
             />
           </CardItem>
-          <CardItem>
-            <Left>
-              <Button transparent>
-                <Icon active name="thumbs-up" />
-                <Text>{props.views}</Text>
-              </Button>
-            </Left>
-            <Body>
-              {/* <Button transparent>
+          {!props.disabled && (
+            <CardItem>
+              <Left>
+                <Button transparent>
+                  <Icon active name="thumbs-up" />
+                  <Text>{props.views}</Text>
+                </Button>
+              </Left>
+              <Body>
+                {/* <Button transparent>
               <Icon active name="chatbubbles" />
   <Text>{}</Text>
             </Button> */}
-            </Body>
-            <Right>
-              <Text>{props.time}</Text>
-            </Right>
-          </CardItem>
+              </Body>
+              <Right>
+                <Text>{props.time}</Text>
+              </Right>
+            </CardItem>
+          )}
         </Card>
       </View>
     </TouchableOpacity>
