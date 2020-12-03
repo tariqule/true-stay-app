@@ -77,7 +77,7 @@ export default ({ navigation }) => {
   };
   return (
     <Container style={styles.container}>
-      <Navbar headerTitle="TrueStay" showBack />
+      <Navbar headerTitle="Sign up for TrueStay" showBack />
 
       <Content>
         <View style={{ marginTop: 20 }}>

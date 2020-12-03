@@ -11,7 +11,7 @@ import { GlobalStyles, screenWidth } from "../../styles/global-styles";
 import { trueStayLogo } from "../../utils/global";
 import * as Font from "expo-font";
 import { SCREEN_ROUTES, SIGNUP_SCREEN } from "../../routes";
-import { retrieveUser } from "../../utils/Storage";
+import { retrieveUser, storeListing, storeUser } from "../../utils/Storage";
 //#endregion Imports
 
 // import { ACTIVITYFEED_SCREEN } from "../../routes";
@@ -37,6 +37,10 @@ const OnboardingScreen = ({ navigation }) => {
     setLoading(false);
   }, [loading]);
 
+  useEffect(() => {
+    // storeListing(null);
+    // storeUser(null);
+  }, []);
   return (
     // This is the main container containing the whole screen
     <View style={GlobalStyles.MainContainer}>
@@ -70,11 +74,12 @@ const OnboardingScreen = ({ navigation }) => {
             <TouchableOpacity
               style={GlobalStyles.ButtonMainType2}
               onPress={() => {
-                useExist
-                  ? navigation.navigate(SCREEN_ROUTES.LOGINPAGE_SCREEN, {
-                      data: { tenant: false },
-                    })
-                  : navigation.navigate(SCREEN_ROUTES.SIGNUP_SCREEN);
+                // useExist
+                //   ?
+                navigation.navigate(SCREEN_ROUTES.LOGINPAGE_SCREEN, {
+                  data: { tenant: false },
+                });
+                // : navigation.navigate(SCREEN_ROUTES.SIGNUP_SCREEN);
               }}
             >
               <Text style={GlobalStyles.MainButtonTextType2}> Landlord </Text>

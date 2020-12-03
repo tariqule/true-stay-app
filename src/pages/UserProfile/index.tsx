@@ -4,6 +4,8 @@ import { SEARCH_SCREEN } from "../../routes";
 import { Button } from "react-native-elements";
 import { themeColorBase } from "../../styles/global-styles";
 import { color } from "react-native-reanimated";
+import Navbar from "../../components/Header";
+import { Container, Content, Footer } from "native-base";
 
 function ProfileScreen() {
   const [outputText, setOutputText] = useState(
@@ -11,14 +13,9 @@ function ProfileScreen() {
   );
   //hooks
   return (
-    <View
-      style={{
-        flex: 1,
-        alignItems: "center",
-        backgroundColor: "#ecf0f1",
-      }}
-    >
-      <View
+    <Container>
+      <Navbar headerTitle="Edit Profile" showBack />
+      {/* <View
         style={{
           width: 500,
           height: 80,
@@ -35,113 +32,102 @@ function ProfileScreen() {
           }}
         >
           {"\n"}
-          Create Profile
+          Edit Profile
         </Text>
-      </View>
-      <View style={{ width: 500, height: 30, backgroundColor: "#ecf0f1" }} />
-      <View>
+      </View> */}
+      <Content>
+        {/* <View style={{ width: 500, height: 30, backgroundColor: "#ecf0f1" }} /> */}
         <View>
-          <Text style={{ fontSize: 20 }}>First Name </Text>
+          <View style={{ width: "80%", marginLeft: 50, marginTop: 50 }}>
+            <Text style={{ fontSize: 20 }}>First Name </Text>
+          </View>
+          <View style={{ justifyContent: "center", alignItems: "center" }}>
+            <TextInput
+              placeholder={"enter your valid first name here"}
+              style={{
+                width: "80%",
+                height: 44,
+                padding: 10,
+                borderBottomWidth: 2,
+                borderColor: "#B97A45",
+              }}
+            />
+          </View>
         </View>
         <View>
-          <TextInput
-            placeholder={"enter your valid first name here"}
-            style={{
-              width: 250,
-              height: 44,
-              padding: 10,
-              borderBottomWidth: 2,
-              borderColor: "#B97A45",
-            }}
-          />
-        </View>
-      </View>
-      <Text
-        style={{
-          fontWeight: "bold",
-          fontSize: 30,
-          color: "white",
-          padding: 20,
-        }}
-      ></Text>
-      <View>
-        <View>
-          <Text style={{ fontSize: 20 }}>Last Name </Text>
+          <View style={{ width: "80%", marginLeft: 50, marginTop: 10 }}>
+            <Text style={{ fontSize: 20 }}>Last Name </Text>
+          </View>
+          <View style={{ justifyContent: "center", alignItems: "center" }}>
+            <TextInput
+              placeholder={"enter your valid first name here"}
+              style={{
+                width: "80%",
+                height: 44,
+                padding: 10,
+                borderBottomWidth: 2,
+                borderColor: "#B97A45",
+              }}
+            />
+          </View>
         </View>
         <View>
-          <TextInput
-            //value={this.state.username}
-            // onChangeText={(username) => this.setState({ username })}
-            placeholder={"enter your valid last name here"}
-            style={{
-              width: 250,
-              height: 44,
-              padding: 10,
-              borderBottomWidth: 2,
-              borderColor: "#B97A45",
-            }}
-          />
+          <View style={{ width: "80%", marginLeft: 50, marginTop: 10 }}>
+            <Text style={{ fontSize: 20 }}>Your Description </Text>
+          </View>
+          <View style={{ justifyContent: "center", alignItems: "center" }}>
+            <TextInput
+              placeholder={"enter your valid first name here"}
+              style={{
+                width: "80%",
+                height: 44,
+                padding: 10,
+                borderBottomWidth: 2,
+                borderColor: "#B97A45",
+              }}
+            />
+          </View>
         </View>
-      </View>
-      <View>
-        <Text
+        <View>
+          <View style={{ width: "80%", marginLeft: 50, marginTop: 10 }}>
+            <Text style={{ fontSize: 20 }}>Your Address</Text>
+          </View>
+          <View style={{ justifyContent: "center", alignItems: "center" }}>
+            <TextInput
+              placeholder={"enter your valid first name here"}
+              style={{
+                width: "80%",
+                height: 44,
+                padding: 10,
+                borderBottomWidth: 2,
+                borderColor: "#B97A45",
+              }}
+            />
+          </View>
+        </View>
+      </Content>
+      <Footer style={{ backgroundColor: "transparent", paddingBottom: 10 }}>
+        <TouchableOpacity
           style={{
-            fontWeight: "bold",
-            fontSize: 30,
-            color: "white",
-            padding: 20,
-          }}
-        ></Text>
-
-        <View>
-          <Text style={{ fontSize: 20 }}>Email address </Text>
-        </View>
-        <View>
-          <TextInput
-            placeholder={"enter your email address here"}
-            style={{
-              width: 250,
-              height: 44,
-              padding: 10,
-              borderBottomWidth: 2,
-              borderColor: "#B97A45",
-            }}
-          />
-        </View>
-      </View>
-      <Text
-        style={{
-          fontWeight: "bold",
-          fontSize: 30,
-          color: "white",
-          padding: 20,
-        }}
-      ></Text>
-
-      <TouchableOpacity
-        style={{
-          marginTop: 50,
-          height: 50,
-          width: "40%",
-          justifyContent: "center",
-          alignItems: "center",
-          borderRadius: 15,
-          backgroundColor: themeColorBase,
-        }}
-      >
-        <Text
-          style={{
-            color: "white",
-            fontSize: 25,
-            fontFamily: "Montserrat",
+            width: "40%",
+            justifyContent: "center",
+            alignItems: "center",
+            borderRadius: 15,
+            backgroundColor: themeColorBase,
           }}
         >
-          Submit
-        </Text>
-      </TouchableOpacity>
-
-      <View style={{ width: 500, height: 30, backgroundColor: "#ecf0f1" }} />
-    </View>
+          <Text
+            style={{
+              color: "white",
+              fontSize: 25,
+              fontFamily: "Montserrat",
+            }}
+          >
+            Submit
+          </Text>
+        </TouchableOpacity>
+      </Footer>
+    </Container>
   );
 }
 export default ProfileScreen;

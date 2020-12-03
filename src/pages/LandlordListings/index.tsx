@@ -61,9 +61,7 @@ const LandlordListingsScreen = ({ navigation }) => {
       <Navbar
         headerTitle="Your Listings"
         onPress={() => navigation.goBack()}
-        onPressAddIcon={() =>
-          navigation.navigate(POSTLISTING_SCREEN, { newUser: false })
-        }
+        onPressAddIcon={() => navigation.navigate(POSTLISTING_SCREEN)}
         showProfile
         showAddIcon
         onPressProfile={() => navigation.navigate(PROFILE_VIEW)}

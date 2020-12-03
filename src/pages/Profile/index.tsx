@@ -8,6 +8,7 @@ import { themeColorBase, themeColorPuff } from "../../styles/global-styles";
 import Navbar from "../../components/Header";
 import { retrieveUser } from "../../utils/Storage";
 import { PROFILE_SCREEN } from "../../routes";
+import { Container, Content } from "native-base";
 
 export const ProfileScreen = (props: any) => {
   const [userInfo, setUserInfo] = React.useState<any>();
@@ -17,10 +18,11 @@ export const ProfileScreen = (props: any) => {
   }, []);
 
   return (
-    <View style={styles.bachgrd}>
+    <Container style={styles.bachgrd}>
       <Navbar headerTitle="Profile" showBack />
-      <View style={styles.header}>
-        {/* <Avatar
+      <Content>
+        <View style={styles.header}>
+          {/* <Avatar
           rounded
           icon={{
             name: "chevron-left",
@@ -29,58 +31,59 @@ export const ProfileScreen = (props: any) => {
           }}
         />
         <Text style={styles.textHeader}>PROFILE</Text> */}
-      </View>
-      <View style={styles.textBox}>
-        <Avatar
-          rounded
-          icon={{ name: "user", type: "font-awesome", color: "#0077B6" }}
-        />
-        <Text style={styles.textName}>
-          {userInfo?.userName || "Name Not Found"}
-        </Text>
-        <Avatar
-          rounded
-          icon={{ name: "plus", type: "font-awesome", color: "#0077B6" }}
-          //onPress={() => props.navigation.navigate('MenuScreen')}
-        />
-      </View>
-      <View>
-        <Text style={styles.textAddress}>Current Location: Toronto</Text>
-      </View>
-      <View>
-        <Text style={styles.textBox}>
-          Hi! My name is John, I’m a creative geek from San Francisco, CA. I
-          enjoy creating eye candy solutions for web and mobile apps. Contact me
-          any time
-        </Text>
-      </View>
-      <View style={styles.stuffContainer}>
-        <Text style={styles.stuff}>
-          140{"\n"}
-          Projects
-        </Text>
-        <Text style={styles.stuff}>
-          24K{"\n"}
-          Followers
-        </Text>
-        <Text style={styles.stuff}>
-          24K{"\n"}
-          Following
-        </Text>
-      </View>
-      <View>
-        <Text style={styles.textContact}>Contact info:</Text>
-        <Text style={styles.textContactDetails}>Phone#</Text>
-        <Text style={styles.textContactDetails}>E-mail:</Text>
-      </View>
-      <View style={styles.button}>
-        <Button
-          //where should it go?
-          onPress={() => props.navigation.navigate(PROFILE_SCREEN)}
-          title="Edit Profile"
-        />
-      </View>
-    </View>
+        </View>
+        <View style={styles.textBox}>
+          <Avatar
+            rounded
+            icon={{ name: "user", type: "font-awesome", color: "#0077B6" }}
+          />
+          <Text style={styles.textName}>
+            {userInfo?.userName || "Name Not Found"}
+          </Text>
+          <Avatar
+            rounded
+            icon={{ name: "plus", type: "font-awesome", color: "#0077B6" }}
+            //onPress={() => props.navigation.navigate('MenuScreen')}
+          />
+        </View>
+        <View>
+          <Text style={styles.textAddress}>Current Location: Toronto</Text>
+        </View>
+        <View>
+          <Text style={styles.textBox}>
+            Hi! My name is John, I’m a creative geek from San Francisco, CA. I
+            enjoy creating eye candy solutions for web and mobile apps. Contact
+            me any time
+          </Text>
+        </View>
+        <View style={styles.stuffContainer}>
+          <Text style={styles.stuff}>
+            0{"\n"}
+            Projects
+          </Text>
+          <Text style={styles.stuff}>
+            0{"\n"}
+            Followers
+          </Text>
+          <Text style={styles.stuff}>
+            0{"\n"}
+            Following
+          </Text>
+        </View>
+        <View>
+          <Text style={styles.textContact}>Contact info:</Text>
+          <Text style={styles.textContactDetails}>Phone#</Text>
+          <Text style={styles.textContactDetails}>E-mail:</Text>
+        </View>
+        <View style={styles.button}>
+          <Button
+            //where should it go?
+            onPress={() => props.navigation.navigate(PROFILE_SCREEN)}
+            title="Edit Profile"
+          />
+        </View>
+      </Content>
+    </Container>
   );
 };
 
@@ -90,7 +93,7 @@ const styles = StyleSheet.create({
     //color: "#0077B6"
   },
   header: {
-    marginTop: "10%",
+    // marginTop: "10%",
     color: "#0077B6",
     flexDirection: "row",
     alignItems: "stretch",

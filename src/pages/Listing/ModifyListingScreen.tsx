@@ -96,7 +96,7 @@ export const ModifyListingScreen = (props) => {
         </View>
       </Content>
       <Footer style={{ backgroundColor: "transparent" }}>
-        <ButtonView title={"Done"} onPress={() => navigation.goBack()} />
+        <ButtonView title={"Modify"} onPress={() => navigation.goBack()} />
       </Footer>
     </Container>
   );

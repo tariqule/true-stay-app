@@ -1,5 +1,5 @@
 import { useNavigation } from "@react-navigation/native";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Text,
   View,
@@ -17,7 +17,7 @@ import {
   SEARCH_SCREEN,
   SIGNUP_SCREEN,
 } from "../../routes";
-import { retrieveUser } from "../../utils/Storage";
+import { retrieveUser, storeListing, storeUser } from "../../utils/Storage";
 // import { Button } from "react-native-elements";
 
 function LoginScreen({ route }) {

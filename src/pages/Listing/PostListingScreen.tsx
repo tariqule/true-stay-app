@@ -46,8 +46,8 @@ if (Dimensions.get("screen").height < 800) {
 
 export const PostListingScreen = (props) => {
   const routes = props?.route;
-  const params = routes?.params;
-  const newUser = params?.newUser;
+  const params = routes && routes?.params;
+  const newUser = params && params?.newUser;
 
   const [loading, setLoading] = React.useState<boolean>();
 
@@ -111,35 +111,38 @@ export const PostListingScreen = (props) => {
     ) {
       setTimeout(() => {
         navigation.navigate(LANDLORD_LISTINGS);
-        retrieveUser().then((listings) => {
-          listings
-            ? storeListing([
-                ...[listings],
+        // retrieveUser()
+        //   .then((listings) => {
+        //     storeListing([
+        //       ...[listings],
 
-                ...[
-                  {
-                    title,
-                    location,
-                    description,
-                    phoneNumber,
-                    price,
-                    email,
-                    image,
-                  },
-                ],
-              ])
-            : storeListing([
-                {
-                  title,
-                  location,
-                  description,
-                  phoneNumber,
-                  price,
-                  email,
-                  image,
-                },
-              ]);
-        });
+        //       ...[
+        //         {
+        //           title,
+        //           location,
+        //           description,
+        //           phoneNumber,
+        //           price,
+        //           email,
+        //           image,
+        //         },
+        //       ],
+        //     ]);
+        //   })
+        //   .catch((err) => {
+        //     console.log(err);
+        //   });
+        storeListing([
+          {
+            title,
+            location,
+            description,
+            phoneNumber,
+            price,
+            email,
+            image,
+          },
+        ]);
 
         setLoading(false);
       }, 3200);
