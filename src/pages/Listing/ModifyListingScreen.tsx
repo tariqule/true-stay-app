@@ -1,17 +1,11 @@
 import { useNavigation } from "@react-navigation/native";
-import React from "react";
-import { ScrollView } from "react-native";
-import {
-  View,
-  StyleSheet,
-  Text,
-  Dimensions,
-  TextInput,
-  TouchableOpacity,
-} from "react-native";
-import { color } from "react-native-reanimated";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { Container, Content, Footer } from "native-base";
+import React, { useEffect } from "react";
+import { Dimensions, StyleSheet, Text, TextInput, View } from "react-native";
+import { Avatar, Button } from "react-native-elements";
 import ButtonView from "../../components/Button";
+import Navbar from "../../components/Header";
+import { ImageLoader } from "./ImageLoader";
 
 const screenWidth = Dimensions.get("screen").width;
 var screenHeight = Dimensions.get("screen").height;
@@ -20,35 +14,91 @@ if (Dimensions.get("screen").height < 800) {
   screenHeight = Dimensions.get("screen").height + 100;
 }
 
-export const ModifyListingScreen = () => {
+export const ModifyListingScreen = (props) => {
+  const { item } = props?.route?.params;
+  const [image, setImage] = React.useState<any>(null);
+
   const navigation = useNavigation();
+  useEffect(() => {
+    console.log(JSON.stringify(item) + "+++");
+  }, []);
+
+  const pickImage = ImageLoader(setImage);
+
   return (
-    <ScrollView style={styles.container}>
-      <View style={{ height: screenHeight }}>
-        <SafeAreaView style={styles.header}>
+    <Container style={styles.container}>
+      <Navbar headerTitle="Modify Your Listing" showBack />
+      <Content style={{ marginTop: 20 }}>
+        {/* <SafeAreaView style={styles.header}>
           <Text style={styles.heading}>Modify Listing</Text>
-        </SafeAreaView>
+        </SafeAreaView> */}
         <View style={styles.body}>
           <View style={styles.main}>
-            <TextInput style={styles.input} placeholder="Title" />
-            <TextInput style={styles.input} placeholder="Description" />
-            <TextInput style={styles.input} placeholder="Address" />
+            <TextInput
+              style={styles.input}
+              placeholder="Title"
+              value={item.title}
+            />
+            <TextInput
+              style={styles.input}
+              placeholder="Description"
+              value={item.description}
+            />
+            <TextInput
+              style={styles.input}
+              placeholder="Address"
+              value={item.location}
+            />
+            <TextInput
+              style={styles.input}
+              placeholder="Phone Number"
+              value={item.phoneNumber}
+            />
+            <TextInput
+              style={styles.input}
+              placeholder="Price"
+              value={item.price}
+            />
+            <TextInput
+              style={styles.input}
+              placeholder="Address"
+              value={item.location}
+            />
             <View style={styles.photoView}>
               <Text style={styles.texts}>Photos</Text>
-              <TouchableOpacity
+              {/* <TouchableOpacity
                 style={styles.PhotoButton}
                 onPress={() => console.log("upload")}
               >
                 <Text style={styles.buttonText}>Choose</Text>
-              </TouchableOpacity>
+              </TouchableOpacity> */}
+              <Button
+                title="Choose"
+                onPress={pickImage}
+                buttonStyle={styles.PhotoButton}
+                containerStyle={styles.PhotoButton}
+              ></Button>
+              {item.image && (
+                <Avatar
+                  size="large"
+                  source={{
+                    uri: item.image,
+                  }}
+                  overlayContainerStyle={{ backgroundColor: "white" }}
+                  onPress={() => console.log("Works!")}
+                  activeOpacity={0.7}
+                  containerStyle={{ marginTop: 20, marginBottom: 20 }}
+                />
+              )}
             </View>
           </View>
-          <View style={styles.footer}>
-            <ButtonView title={"Done"} onPress={() => navigation.goBack()} />
-          </View>
+          <View style={styles.footer}></View>
         </View>
-      </View>
-    </ScrollView>
+      </Content>
+      <Footer style={{ backgroundColor: "transparent" }}>
+        <ButtonView title={"Done"} onPress={() => navigation.goBack()} />
+      </Footer>
+    </Container>
   );
 };
 

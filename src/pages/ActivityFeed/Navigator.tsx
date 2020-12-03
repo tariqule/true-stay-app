@@ -1,6 +1,6 @@
 import * as React from "react";
-import { MENU_SCREEN, SEARCH_SCREEN } from "../../routes";
 import Navbar from "../../components/Header";
+import { MENU_SCREEN, SEARCH_SCREEN } from "../../routes";
 
 export function Navigator(navigation: any) {
   return (

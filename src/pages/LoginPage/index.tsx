@@ -1,12 +1,53 @@
+import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
-import { Text, View, TextInput, SafeAreaView } from "react-native";
+import {
+  Text,
+  View,
+  TextInput,
+  SafeAreaView,
+  NativeSyntheticEvent,
+  TextInputChangeEventData,
+  Alert,
+} from "react-native";
+import { TouchableOpacity } from "react-native-gesture-handler";
 import ButtonView from "../../components/Button";
-import { SEARCH_SCREEN } from "../../routes";
+import {
+  LANDLORD_LISTINGS,
+  PASSRESET_SCREEN,
+  SEARCH_SCREEN,
+  SIGNUP_SCREEN,
+} from "../../routes";
+import { retrieveUser } from "../../utils/Storage";
 // import { Button } from "react-native-elements";
 
 function LoginScreen({ route }) {
   const { data } = route.params;
+
+  const [username, setUserName] = React.useState<string>("");
+  const [password, setPassword] = React.useState<string>("");
+  const navigation = useNavigation();
   //hooks
+
+  const _handleUserName = (
+    e: NativeSyntheticEvent<TextInputChangeEventData>
+  ) => {
+    setUserName(e.nativeEvent.text);
+  };
+  const _handlePassword = (
+    e: NativeSyntheticEvent<TextInputChangeEventData>
+  ) => {
+    setPassword(e.nativeEvent.text);
+  };
+  const _handleSubmit = () => {
+    retrieveUser().then((user) => {
+      user?.userName === username && user?.password === password
+        ? navigation.navigate(LANDLORD_LISTINGS)
+        : Alert.alert(
+            "Password Error",
+            "You have entered invalid password or username!"
+          );
+    });
+  };
   return (
     <View
       style={{
@@ -63,7 +104,7 @@ function LoginScreen({ route }) {
 
       <TextInput
         //value={this.state.username}
-        // onChangeText={(username) => this.setState({ username })}
+        onChange={_handleUserName}
         placeholder={"Username"}
         style={{
           width: "90%",
@@ -78,6 +119,7 @@ function LoginScreen({ route }) {
       />
       <TextInput
         placeholder={"Password"}
+        onChange={_handlePassword}
         secureTextEntry={true}
         style={{
           width: "90%",
@@ -90,8 +132,27 @@ function LoginScreen({ route }) {
           borderRadius: 20,
         }}
       />
-      <ButtonView title="login" />
-
+      <ButtonView title="login" onPress={_handleSubmit} />
+      <View>
+        <TouchableOpacity onPress={() => navigation.navigate(PASSRESET_SCREEN)}>
+          <Text>Forgot password?</Text>
+        </TouchableOpacity>
+      </View>
+      <View
+        style={{
+          borderRadius: 20,
+          borderWidth: 2,
+          width: "60%",
+          marginTop: 10,
+          justifyContent: "center",
+          alignItems: "center",
+          padding: 10,
+        }}
+      >
+        <TouchableOpacity onPress={() => navigation.navigate(SIGNUP_SCREEN)}>
+          <Text>Don't have an account?</Text>
+        </TouchableOpacity>
+      </View>
       <View style={{ width: 500, height: 30, backgroundColor: "#ecf0f1" }} />
     </View>
   );

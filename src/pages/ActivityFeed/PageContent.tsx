@@ -1,7 +1,7 @@
-import { Text, View } from "react-native";
-import * as React from "react";
-import ListCard, { ListViewData } from "../../components/ListCard";
 import { Content } from "native-base";
+import * as React from "react";
+import { Text, View } from "react-native";
+import ListCard, { ListViewData } from "../../components/ListCard";
 import { ContentTitle } from "./ContentTitle";
 
 export function PageContent(aData: ListViewData[], hData: ListViewData[]) {

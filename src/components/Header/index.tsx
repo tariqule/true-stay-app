@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
 import { Body, Button, Header, Icon, Left, Right, Title } from "native-base";
 import React from "react";
@@ -14,9 +15,14 @@ interface HeaderProps {
   onPressMenu?: (event: Event) => void;
   showSearchIcon?: boolean;
   onPressSearchIcon?: (event: Event) => void;
+  showViewIcon?: boolean;
+  onPressViewIcon?: (event: Event) => void;
+  showProfile?: boolean;
+  onPressProfile?: (event: Event) => void;
 }
 
 const Navbar = (props: HeaderProps) => {
+  const navigation = useNavigation();
   return (
     // <Container>
     <Header
@@ -29,7 +35,12 @@ const Navbar = (props: HeaderProps) => {
       <Left style={{ flex: 1 }}>
         {props.showBack && (
           <Button transparent>
-            <Icon name="arrow-back" onPress={props.onPress} />
+            <Icon
+              name="arrow-back"
+              onPress={
+                props.onPress ? props.onPress : () => navigation.goBack()
+              }
+            />
           </Button>
         )}
         {props.showMenu && (
@@ -37,6 +48,16 @@ const Navbar = (props: HeaderProps) => {
             <Icon
               name="menu"
               onPress={props.onPressMenu}
+              style={{ fontSize: 30 }}
+            />
+          </Button>
+        )}
+        {props.showProfile && (
+          <Button transparent>
+            <Icon
+              type="AntDesign"
+              name="profile"
+              onPress={props.onPressProfile}
               style={{ fontSize: 30 }}
             />
           </Button>
@@ -60,6 +81,16 @@ const Navbar = (props: HeaderProps) => {
             <Icon
               name="search"
               onPress={props.onPressSearchIcon}
+              style={{ fontSize: 30 }}
+            />
+          </Button>
+        )}
+        {props.showViewIcon && (
+          <Button transparent>
+            <Icon
+              name="view-day"
+              type="MaterialIcons"
+              onPress={props.onPressViewIcon}
               style={{ fontSize: 30 }}
             />
           </Button>

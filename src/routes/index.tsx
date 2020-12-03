@@ -17,7 +17,7 @@ import ActivityFeedScreen from "../pages/ActivityFeed";
 import DetailsPageScreen from "../pages/DetailsPage";
 import LandlordListingsScreen from "../pages/LandlordListings";
 import ProfileScreen from "../pages/UserProfile";
-
+import ProfileView from "../pages/Profile";
 const Stack = createStackNavigator();
 
 //all the screen should be here
@@ -53,6 +53,7 @@ export const ACTIVITYFEED_SCREEN = "ACTIVITYFEED_SCREEN";
 export const DETAILSPAGE_SCREEN = "DETAILSPAGE_SCREEN;";
 export const LANDLORD_LISTINGS = "LANDLORD_LISTINGS;";
 export const PROFILE_SCREEN = "PROFILE_SCREEN";
+export const PROFILE_VIEW = "PROFILE_VIEW";
 
 function Navigator() {
   return (
@@ -65,33 +66,26 @@ function Navigator() {
         })}
       >
         <Stack.Screen name={ONBOARDING_SCREEN} component={OnboardingScreen} />
-        {/* <Stack.Screen name={LOGIN_SCREEN} component={LoginScreen} /> */}
-        {/* <Stack.Screen name={SIGNUP_SCREEN} component={SignupScreen} /> */}
+
+        <Stack.Screen name={POSTLISTING_SCREEN} component={PostListingScreen} />
 
         <Stack.Screen
           name={ACTIVITYFEED_SCREEN}
           component={ActivityFeedScreen}
         />
-
-        {/* <Stack.Screen name={ONBOARDING_SCREEN} component={OnboardingScreen} /> */}
-        {/* <Stack.Screen name={LOGIN_SCREEN} component={LoginScreen} /> */}
-        {/* <Stack.Screen name={SIGNUP_SCREEN} component={SignupScreen} /> */}
         <Stack.Screen name={SEARCH_SCREEN} component={Search} />
         <Stack.Screen name={DETAILSPAGE_SCREEN} component={DetailsPageScreen} />
         <Stack.Screen name={LOGIN_SCREEN} component={InitialScreen} />
         <Stack.Screen name={SIGNUP_SCREEN} component={SignUpScreen} />
-        <Stack.Screen name={POSTLISTING_SCREEN} component={PostListingScreen} />
         <Stack.Screen
           name={MODIFYLISTING_SCREEN}
           component={ModifyListingScreen}
         />
-        {/* <Stack.Screen name={SIGNUP_SCREEN} component={SignUpScreen} /> */}
-
-        <Stack.Screen name={SEARCH_SCREEN} component={Search} />
         <Stack.Screen
           name={LANDLORD_SEARCH_SCREEN}
           component={LandlordSearch}
         />
+        {/* <Stack.Screen name={POSTLISTING_SCREEN} component={PostListingScreen} /> */}
 
         <Stack.Screen name={MENU_SCREEN} component={MenuScreen} />
         <Stack.Screen name={LOGINPAGE_SCREEN} component={LoginScreen} />
@@ -100,7 +94,9 @@ function Navigator() {
           name={LANDLORD_LISTINGS}
           component={LandlordListingsScreen}
         />
+
         <Stack.Screen name={PROFILE_SCREEN} component={ProfileScreen} />
+        <Stack.Screen name={PROFILE_VIEW} component={ProfileView} />
       </Stack.Navigator>
     </NavigationContainer>
   );
