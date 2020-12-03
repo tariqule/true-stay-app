@@ -8,7 +8,7 @@ import { themeColorBase, themeColorPeach } from "../../styles/global-styles";
 import { color } from "react-native-reanimated";
 import { ContentTitle } from "../ActivityFeed/ContentTitle";
 import { ACTIVITYFEED_SCREEN, SEARCH_SCREEN } from "../../routes";
-import { Footer } from "./Footer";
+//import { Footer } from "./Footer";
 import { Header } from "./Header";
 
 export const MenuScreen = ({ navigation }) => {
@@ -54,7 +54,7 @@ export const MenuScreen = ({ navigation }) => {
       {Contents}
 
       {/* logout */}
-      {Footer(navigation)}
+      {/* {Footer(navigation)} */}
     </View>
   );
 };

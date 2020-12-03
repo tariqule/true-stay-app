@@ -17,16 +17,11 @@ export function ActivityFeedScreen() {
   const navigation = useNavigation();
   DataLoader(setPopularData, setPopularData2);
   return (
-    <Container
-      style={{
-        backgroundColor: themeColorBase,
-        height: screenHeight,
-        width: screenWidth,
-        paddingLeft: 10,
-      }}
-    >
+    <Container style={{ flex: 1 }}>
       {Navigator(navigation)}
-      {PageContent(popularData, popularData2)}
+      <Container style={GlobalStyles.ContentContainer}>
+        {PageContent(popularData, popularData2)}
+      </Container>
     </Container>
   );
 }

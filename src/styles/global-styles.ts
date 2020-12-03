@@ -24,6 +24,12 @@ export const GlobalStyles = StyleSheet.create({
     marginTop: Platform.OS !== "android" ? screenHeight * 0.035 : undefined,
     backgroundColor: themeColorPeach,
   },
+  ContentContainer: {
+    backgroundColor: themeColorPeach,
+    height: screenHeight,
+    width: screenWidth,
+    padding: screenWidth / 100,
+  },
   container: {
     flex: 1,
     backgroundColor: "white",
