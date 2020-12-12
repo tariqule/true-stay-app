@@ -20,8 +20,8 @@ import {
 import { retrieveUser, storeListing, storeUser } from "../../utils/Storage";
 // import { Button } from "react-native-elements";
 
-function LoginScreen({ route }) {
-  const { data } = route.params;
+function LoginScreen(props: any) {
+  const { data } = props.route.params;
 
   const [username, setUserName] = React.useState<string>("");
   const [password, setPassword] = React.useState<string>("");

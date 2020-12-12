@@ -3,6 +3,7 @@ import { Container } from "native-base";
 import * as React from "react";
 import { ListViewData } from "../../components/ListCard";
 import {
+  GlobalStyles,
   screenHeight,
   screenWidth,
   themeColorBase,
