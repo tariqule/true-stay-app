@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders a view with a align-items 1`] = `"center"`;
+
+exports[`renders a view with a custom background 1`] = `"#BB7A44"`;
+
+exports[`renders a view with a flex 1`] = `1`;
+
+exports[`renders a view with a justify-content 1`] = `"center"`;

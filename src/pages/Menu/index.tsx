@@ -10,6 +10,7 @@ import { ContentTitle } from "../ActivityFeed/ContentTitle";
 import { ACTIVITYFEED_SCREEN, SEARCH_SCREEN } from "../../routes";
 //import { Footer } from "./Footer";
 import { Header } from "./Header";
+import { Footer } from "./Footer";
 
 export const MenuScreen = ({ navigation }) => {
   const menuData = [
@@ -54,7 +55,7 @@ export const MenuScreen = ({ navigation }) => {
       {Contents}
 
       {/* logout */}
-      {/* {Footer(navigation)} */}
+      {Footer(navigation)}
     </View>
   );
 };

@@ -1,0 +1,74 @@
+import { shallow } from "enzyme";
+import React from "react";
+import { View, StyleSheet, Platform } from "react-native";
+import { themeColorBase } from "../styles/global-styles";
+
+it(`renders a view with a custom background`, () => {
+  const component = shallow(
+    <View style={{ backgroundColor: themeColorBase }} />
+  );
+  // To debug your component use this:
+  console.log("Component:", component.debug({ verbose: true }));
+
+  // When snapshot testing, you should always try and be as concise as possible
+  // here we are extracting the style prop from `View` on native and `div` on web
+  const prop = component
+    .find(Platform.select({ default: "View", web: "div" }))
+    .prop("style");
+
+  // Flatten the style so we can read it as an object
+  const style = StyleSheet.flatten(prop);
+
+  expect(style.backgroundColor).toMatchSnapshot();
+});
+
+it(`renders a view with a flex`, () => {
+  const component = shallow(<View style={{ flex: 1 }} />);
+  // To debug your component use this:
+  console.log("Component:", component.debug({ verbose: true }));
+
+  // When snapshot testing, you should always try and be as concise as possible
+  // here we are extracting the style prop from `View` on native and `div` on web
+  const prop = component
+    .find(Platform.select({ default: "View", web: "div" }))
+    .prop("style");
+
+  // Flatten the style so we can read it as an object
+  const style = StyleSheet.flatten(prop);
+
+  expect(style.flex).toMatchSnapshot();
+});
+
+it(`renders a view with a align-items`, () => {
+  const component = shallow(<View style={{ alignItems: "center" }} />);
+  // To debug your component use this:
+  console.log("Component:", component.debug({ verbose: true }));
+
+  // When snapshot testing, you should always try and be as concise as possible
+  // here we are extracting the style prop from `View` on native and `div` on web
+  const prop = component
+    .find(Platform.select({ default: "View", web: "div" }))
+    .prop("style");
+
+  // Flatten the style so we can read it as an object
+  const style = StyleSheet.flatten(prop);
+
+  expect(style.alignItems).toMatchSnapshot();
+});
+
+it(`renders a view with a justify-content`, () => {
+  const component = shallow(<View style={{ justifyContent: "center" }} />);
+  // To debug your component use this:
+  console.log("Component:", component.debug({ verbose: true }));
+
+  // When snapshot testing, you should always try and be as concise as possible
+  // here we are extracting the style prop from `View` on native and `div` on web
+  const prop = component
+    .find(Platform.select({ default: "View", web: "div" }))
+    .prop("style");
+
+  // Flatten the style so we can read it as an object
+  const style = StyleSheet.flatten(prop);
+
+  expect(style.justifyContent).toMatchSnapshot();
+});
