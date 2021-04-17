@@ -18,6 +18,8 @@ import DetailsPageScreen from "../pages/DetailsPage";
 import LandlordListingsScreen from "../pages/LandlordListings";
 import ProfileScreen from "../pages/UserProfile";
 import ProfileView from "../pages/Profile";
+import MapViewSreen from "../pages/Map";
+
 const Stack = createStackNavigator();
 
 //all the screen should be here
@@ -54,7 +56,7 @@ export const DETAILSPAGE_SCREEN = "DETAILSPAGE_SCREEN;";
 export const LANDLORD_LISTINGS = "LANDLORD_LISTINGS;";
 export const PROFILE_SCREEN = "PROFILE_SCREEN";
 export const PROFILE_VIEW = "PROFILE_VIEW";
-
+export const MAP_VIEW = "MAP_VIEW";
 function Navigator() {
   return (
     <NavigationContainer>
@@ -97,6 +99,7 @@ function Navigator() {
 
         <Stack.Screen name={PROFILE_SCREEN} component={ProfileScreen} />
         <Stack.Screen name={PROFILE_VIEW} component={ProfileView} />
+        <Stack.Screen name={MAP_VIEW} component={MapViewSreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

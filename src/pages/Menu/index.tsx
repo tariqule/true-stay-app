@@ -1,22 +1,21 @@
 import * as React from "react";
-import { View, StyleSheet, Text, TouchableOpacity } from "react-native";
-import { createDrawerNavigator } from "@react-navigation/drawer";
-import { NavigationContainer } from "@react-navigation/native";
-import LoginScreen from "../Login";
-import { BottomSheet } from "react-native-elements";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { ACTIVITYFEED_SCREEN, MAP_VIEW, SEARCH_SCREEN } from "../../routes";
 import { themeColorBase, themeColorPeach } from "../../styles/global-styles";
-import { color } from "react-native-reanimated";
 import { ContentTitle } from "../ActivityFeed/ContentTitle";
-import { ACTIVITYFEED_SCREEN, SEARCH_SCREEN } from "../../routes";
+import { Footer } from "./Footer";
 //import { Footer } from "./Footer";
 import { Header } from "./Header";
-import { Footer } from "./Footer";
 
 export const MenuScreen = ({ navigation }) => {
   const menuData = [
     {
       title: "Feed",
       onPress: () => navigation.navigate(ACTIVITYFEED_SCREEN),
+    },
+    {
+      title: "Location",
+      onPress: () => navigation.navigate(MAP_VIEW),
     },
     {
       title: "Explore",

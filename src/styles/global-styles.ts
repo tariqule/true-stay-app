@@ -58,19 +58,19 @@ export const GlobalStyles = StyleSheet.create({
   buttonText: {
     color: "white",
     fontSize: 20,
-    fontFamily: "Montserrat",
+    // fontFamily: "Montserrat",
   },
   MainButtonTextType1: {
     color: themeColorPuff,
     fontSize: 20,
     fontWeight: "bold",
-    fontFamily: "Montserrat",
+    // fontFamily: "Montserrat",
   },
   MainButtonTextType2: {
     color: themeColorBase,
     fontSize: 20,
     fontWeight: "bold",
-    fontFamily: "Montserrat",
+    // fontFamily: "Montserrat",
   },
   texts: {
     fontSize: 18,
